@@ -39,6 +39,13 @@ jobs:
         bundle exec rails db:create
         bundle exec rails db:migrate
         bundle exec rails test
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        version: "299.0.0"
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        export_default_credentials: true
+    - run: gcloud info
     - env:
         CLOUD_SQL_CONNECTION_NAME: ${{ secrets.CLOUD_SQL_CONNECTION_NAME }}
         SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
