@@ -48,8 +48,11 @@ jobs:
     - run: gcloud info
     - env:
         CLOUD_SQL_CONNECTION_NAME: ${{ secrets.CLOUD_SQL_CONNECTION_NAME }}
+        RAILS_ENV: production
         SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
         YARDSTICK_DATABASE_HOST: ${{ secrets.YARDSTICK_DATABASE_HOST }}
         YARDSTICK_DATABASE_PASSWORD: ${{ secrets.YARDSTICK_DATABASE_PASSWORD }}
       run: |
         erb app.yaml.erb > app.yaml
+        rails assets:precompile
+        gcloud app deploy
