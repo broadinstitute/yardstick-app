@@ -56,3 +56,4 @@ jobs:
         erb app.yaml.erb > app.yaml
         bundle exec rails assets:precompile
         gcloud app deploy
+        bundle exec rake appengine:exec -- bundle exec rake db:migrate
