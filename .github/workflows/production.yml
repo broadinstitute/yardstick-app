@@ -54,5 +54,5 @@ jobs:
         YARDSTICK_DATABASE_PASSWORD: ${{ secrets.YARDSTICK_DATABASE_PASSWORD }}
       run: |
         erb app.yaml.erb > app.yaml
-        rails assets:precompile
+        bundle exec rails assets:precompile
         gcloud app deploy
