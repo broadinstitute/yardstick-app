@@ -1,0 +1,48 @@
+name: test
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports: ["5432:5432"]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - env:
+        PGHOST: 127.0.0.1
+        PGUSER: postgres
+        RAILS_ENV: test
+      run: |
+        sudo apt-get -yqq install libpq-dev
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+        bundle exec rails test
+    - env:
+        CLOUD_SQL_CONNECTION_NAME: ${{ secrets.CLOUD_SQL_CONNECTION_NAME }}
+        SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+        YARDSTICK_DATABASE_HOST: ${{ secrets.YARDSTICK_DATABASE_HOST }}
+        YARDSTICK_DATABASE_PASSWORD: ${{ secrets.YARDSTICK_DATABASE_PASSWORD }}
+      run: |
+        erb app.yaml.erb > app.yaml
