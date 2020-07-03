@@ -1,0 +1,20 @@
+default:    &default
+  adapter:  postgresql
+  encoding: unicode
+  pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout:  5000
+
+development:
+  <<:       *default
+  database: yardstick_development
+
+test:
+  <<:       *default
+  database: yardstick_test
+
+production:
+  <<:       *default
+  database: yardstick_production
+  host:     <%= ENV["YARDSTICK_DATABASE_HOST"] %>
+  password: <%= ENV["YARDSTICK_DATABASE_PASSWORD"] %>
+  username: yardstick
