@@ -12,6 +12,7 @@ gem 'rails',                  '~> 6.0.3', '>= 6.0.3.2'
 gem 'sass-rails',             '>= 6'
 gem 'turbolinks',             '~> 5'
 gem 'webpacker',              '~> 4.0'
+gem 'react-rails',            '~> 2.6',   '>= 2.6.1'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
