@@ -10,9 +10,37 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {useStyles} from "./Registration.css";
+import {FormFor} from "react-rails-form-helpers";
+import Alert from "@material-ui/lab/Alert";
 
-const Registration = () => {
+type RegistrationProps = {
+  flash: Array<[string, string]>
+  errors: Array<string>
+}
+
+const Registration = ({flash, errors}: RegistrationProps) => {
   const classes = useStyles();
+
+  const messages = flash.map(([kind, message]: [string, string], index: number) => {
+    if (kind && message) {
+      const kinds = {
+        alert: 'warning',
+        error: 'error',
+        notice: 'info',
+        success: 'success'
+      };
+
+      const severity = kinds[kind];
+
+      return (
+          <Alert className={classes.alert} key={index} severity={severity}>
+            {message}
+          </Alert>
+      );
+    } else {
+      return;
+    }
+  })
 
   return (
       <Container component="main" maxWidth="xs">
@@ -27,7 +55,17 @@ const Registration = () => {
             Sign up for Yardstick
           </Typography>
 
-          <form className={classes.form} noValidate>
+          {messages}
+
+          {errors.map((error: string, index: number) => {
+            return (
+                <Alert className={classes.alert} key={index} severity="error">
+                  {error}
+                </Alert>
+            );
+          })}
+
+          <FormFor className={classes.form} method="post" name="sign-up" url="/users">
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -75,7 +113,7 @@ const Registration = () => {
             >
               Sign Up
             </Button>
-          </form>
+          </FormFor>
         </div>
 
         <Box mt={5}>

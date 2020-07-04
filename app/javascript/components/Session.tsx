@@ -13,9 +13,35 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {useStyles} from "./Session.css";
 import {FormFor} from "react-rails-form-helpers";
+import Alert from "@material-ui/lab/Alert";
 
-const Session = () => {
+type SessionProps = {
+    flash: Array<[string, string]>
+}
+
+const Session = ({flash}: SessionProps) => {
     const classes = useStyles();
+
+    const messages = flash.map(([kind, message]: [string, string], index: number) => {
+        if (kind && message) {
+            const kinds = {
+                alert: 'warning',
+                error: 'error',
+                notice: 'info',
+                success: 'success'
+            };
+
+            const severity = kinds[kind];
+
+            return (
+                <Alert className={classes.alert} key={index} severity={severity}>
+                    {message}
+                </Alert>
+            );
+        } else {
+            return;
+        }
+    })
 
     return (
         <Container component="main" maxWidth="xs">
@@ -30,13 +56,15 @@ const Session = () => {
                     Sign in to Yardstick
                 </Typography>
 
-                <FormFor url="/users/sign_in" method="put" name="sign_in">
+                {messages}
+
+                <FormFor method="post" name="sign-in" url="/users/sign_in">
                     <TextField
-                        autoComplete="email"
+                        autoComplete="username"
                         autoFocus
                         fullWidth
                         id="email"
-                        label="Email Address"
+                        label="E-mail address"
                         margin="normal"
                         name="email"
                         variant="outlined"
@@ -71,7 +99,7 @@ const Session = () => {
 
                     <Grid container>
                         <Grid item xs>
-                            <Link href="#" variant="body2">
+                            <Link href="/users/password/new" variant="body2">
                                 Forgot password?
                             </Link>
                         </Grid>

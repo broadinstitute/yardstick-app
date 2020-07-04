@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :tasks
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  root "tasks#index"
+
+  get "/user" => "tasks#index", as: :user_root
 end

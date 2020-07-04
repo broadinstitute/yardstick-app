@@ -1,5 +1,1 @@
-<%= react_component("Registration", {}) %>
-
-<%= render "devise/shared/error_messages", resource: resource %>
-
-<%= render "devise/shared/links" %>
+<%= react_component("Registration", {flash: flash, errors: (resource.errors.full_messages if resource.errors.full_messages)}) %>

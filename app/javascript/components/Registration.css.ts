@@ -1,6 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
+    alert: {
+        margin: '16px 0 0 0',
+        width: '100%',
+    },
     paper: {
         marginTop: theme.spacing(8),
         display: 'flex',
