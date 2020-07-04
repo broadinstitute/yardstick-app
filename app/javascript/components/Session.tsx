@@ -12,11 +12,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {useStyles} from "./Session.css";
+import {FormFor} from "react-rails-form-helpers";
 
 const Session = () => {
     const classes = useStyles();
-
-    const authenticity_token = (document.querySelector('[name=csrf-token]') as HTMLMetaElement).content
 
     return (
         <Container component="main" maxWidth="xs">
@@ -31,19 +30,7 @@ const Session = () => {
                     Sign in to Yardstick
                 </Typography>
 
-                <form
-                    acceptCharset="UTF-8"
-                    action="/users/sign_in"
-                    className={classes.form}
-                    method="post"
-                    noValidate
-                >
-                    <input
-                        type="hidden"
-                        name="authenticity_token"
-                        value={authenticity_token}
-                    />
-
+                <FormFor url="/users/sign_in" method="put" name="sign_in">
                     <TextField
                         autoComplete="email"
                         autoFocus
@@ -52,7 +39,6 @@ const Session = () => {
                         label="Email Address"
                         margin="normal"
                         name="email"
-                        required
                         variant="outlined"
                     />
 
@@ -63,7 +49,6 @@ const Session = () => {
                         label="Password"
                         margin="normal"
                         name="password"
-                        required
                         type="password"
                         variant="outlined"
                     />
@@ -77,6 +62,7 @@ const Session = () => {
                         className={classes.submit}
                         color="primary"
                         fullWidth
+                        size="large"
                         type="submit"
                         variant="contained"
                     >
@@ -91,22 +77,22 @@ const Session = () => {
                         </Grid>
 
                         <Grid item>
-                            <Link href="#" variant="body2">
+                            <Link href="/users/sign_up" variant="body2">
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>
                     </Grid>
-                </form>
+                </FormFor>
             </div>
 
             <Box mt={8}>
                 <Typography variant="body2" color="textSecondary" align="center">
                     {'Copyright © '}
+                    {new Date().getFullYear()}{' '}
                     <Link color="inherit" href="https://www.broadinstitute.org/">
                         Broad Institute
-                    </Link>{' '}
-                    {new Date().getFullYear()}
-                    {'.'}
+                    </Link>{'. '}
+                    {'All rights reserved.'}
                 </Typography>
             </Box>
         </Container>
