@@ -1,9 +1,0 @@
-beta_settings:
-  cloud_sql_instances: 
-entrypoint: bundle exec rackup --port $PORT
-env: flex
-env_variables:
-  SECRET_KEY_BASE: 
-  YARDSTICK_DATABASE_HOST: 
-  YARDSTICK_DATABASE_PASSWORD: 
-runtime: ruby

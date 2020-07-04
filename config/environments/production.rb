@@ -109,4 +109,11 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  config.google_cloud.use_debugger = true
+  config.google_cloud.use_error_reporting = true
+  config.google_cloud.use_logging = true
+  config.google_cloud.use_trace = true
+
+  config.action_mailer.default_url_options = { host: 'https://broad-imaging.ue.r.appspot.com/' }
 end
