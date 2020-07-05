@@ -4,6 +4,11 @@ import Typography from '@material-ui/core/Typography';
 import {useStyles} from "./Navigation.css";
 import {AppBar} from "@material-ui/core";
 import Toolbar from "@material-ui/core/Toolbar";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import IconButton from "@material-ui/core/IconButton";
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import UserMenu from "./UserMenu";
 
 type NavigationProps = {
     authenticated: boolean
@@ -11,6 +16,18 @@ type NavigationProps = {
 
 const Navigation = ({authenticated}: NavigationProps) => {
     const classes = useStyles();
+
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+    const open = Boolean(anchorEl);
+
+    const onOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const onClose = () => {
+        setAnchorEl(null);
+    };
 
     return (
         <AppBar color="inherit" position="static">
@@ -22,7 +39,19 @@ const Navigation = ({authenticated}: NavigationProps) => {
                 {
                     authenticated
                     ? <>
-                        <Button color="inherit" data-method="delete" href="/users/sign_out" rel="nofollow">Sign out</Button>
+                        <div>
+                            <IconButton
+                                aria-controls="appbar-user-menu"
+                                aria-haspopup="true"
+                                aria-label="account of current user"
+                                color="inherit"
+                                onClick={onOpen}
+                            >
+                                <AccountCircle />
+                            </IconButton>
+
+                            <UserMenu anchorEl={anchorEl} onClose={onClose}/>
+                        </div>
                     </>
                     : <>
                         <Button color="inherit" data-method="" href="/users/sign_in">Sign in</Button>

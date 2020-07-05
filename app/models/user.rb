@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :registerable
   devise :rememberable
   devise :validatable
+
+  has_one :profile
 end
