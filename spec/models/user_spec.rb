@@ -4,6 +4,6 @@ describe User, "#profile" do
   it "returns a user’s profile" do
     user = build(:user)
 
-    expect(user.profile).to eq []
+    expect(user.profile.name).to eq ""
   end
 end

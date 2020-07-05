@@ -53,12 +53,6 @@ ActiveRecord::Schema.define(version: 2020_07_05_203840) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.uuid "version_id"
-    t.uuid "training_partition_id"
-    t.uuid "validation_partition_id"
-    t.uuid "test_partition_id"
-    t.index ["test_partition_id"], name: "index_metrics_on_test_partition_id"
-    t.index ["training_partition_id"], name: "index_metrics_on_training_partition_id"
-    t.index ["validation_partition_id"], name: "index_metrics_on_validation_partition_id"
     t.index ["version_id"], name: "index_metrics_on_version_id"
   end
 
@@ -127,14 +121,17 @@ ActiveRecord::Schema.define(version: 2020_07_05_203840) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.uuid "challenge_id"
+    t.uuid "training_partition_id"
+    t.uuid "validation_partition_id"
+    t.uuid "test_partition_id"
     t.index ["challenge_id"], name: "index_versions_on_challenge_id"
+    t.index ["test_partition_id"], name: "index_versions_on_test_partition_id"
+    t.index ["training_partition_id"], name: "index_versions_on_training_partition_id"
+    t.index ["validation_partition_id"], name: "index_versions_on_validation_partition_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "challenges", "tasks"
-  add_foreign_key "metrics", "partitions", column: "test_partition_id"
-  add_foreign_key "metrics", "partitions", column: "training_partition_id"
-  add_foreign_key "metrics", "partitions", column: "validation_partition_id"
   add_foreign_key "metrics", "versions"
   add_foreign_key "profiles", "users"
   add_foreign_key "scores", "metrics"
@@ -142,4 +139,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_203840) do
   add_foreign_key "submissions", "profiles"
   add_foreign_key "submissions", "versions"
   add_foreign_key "versions", "challenges"
+  add_foreign_key "versions", "partitions", column: "test_partition_id"
+  add_foreign_key "versions", "partitions", column: "training_partition_id"
+  add_foreign_key "versions", "partitions", column: "validation_partition_id"
 end

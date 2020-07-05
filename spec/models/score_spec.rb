@@ -4,7 +4,7 @@ describe Score, "#metric" do
   it "returns a score’s metric" do
     score = build(:score)
 
-    expect(score.metric).to eq []
+    expect(score.metric.name).to eq ""
   end
 end
 
@@ -12,6 +12,6 @@ describe Score, "#submission" do
   it "returns a score’s submission" do
     score = build(:score)
 
-    expect(score.submission).to eq ""
+    expect(score.submission.name).to eq ""
   end
 end
