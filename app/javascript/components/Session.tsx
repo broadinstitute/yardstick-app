@@ -66,7 +66,7 @@ const Session = ({flash}: SessionProps) => {
                         id="email"
                         label="E-mail address"
                         margin="normal"
-                        name="email"
+                        name="user[email]"
                         variant="outlined"
                     />
 
@@ -76,7 +76,7 @@ const Session = ({flash}: SessionProps) => {
                         id="password"
                         label="Password"
                         margin="normal"
-                        name="password"
+                        name="user[password]"
                         type="password"
                         variant="outlined"
                     />
