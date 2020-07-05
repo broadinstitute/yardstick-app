@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :challenges
   devise_for :users
 
   get "/profiles" => "profiles#new", as: :user_root

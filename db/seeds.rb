@@ -1,8 +1,8 @@
-attributes = [
+task_attributes = [
     {name: 'instance segmentation'},
     {name: 'object detection'},
     {name: 'semantic segmentation'},
     {name: 'super-resolution'},
 ]
 
-Task.create(attributes)
+Task.create(task_attributes)
