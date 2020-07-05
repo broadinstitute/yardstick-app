@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User, "#profile" do
+  it "returns a user’s profile" do
+    user = build(:user)
+
+    expect(user.profile).to eq []
+  end
 end

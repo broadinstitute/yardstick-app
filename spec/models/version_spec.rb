@@ -1,5 +1,49 @@
 require 'rails_helper'
 
-RSpec.describe Version, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Version, "#challenge" do
+  it "returns a version’s challenge" do
+    version = build(:version)
+
+    expect(version.challenge).to eq []
+  end
+end
+
+describe Version, "#metrics" do
+  it "returns a version’s metrics" do
+    version = build(:version)
+
+    expect(version.metrics).to eq []
+  end
+end
+
+describe Version, "#submissions" do
+  it "returns a version’s submissions" do
+    version = build(:version)
+
+    expect(version.submissions).to eq []
+  end
+end
+
+describe Version, "#test_partition" do
+  it "returns a version’s test partition" do
+    version = build(:version)
+
+    expect(version.test_partition).to eq []
+  end
+end
+
+describe Version, "#training_partition" do
+  it "returns a version’s training partition" do
+    version = build(:version)
+
+    expect(version.training_partition).to eq []
+  end
+end
+
+describe Version, "#validation_partition" do
+  it "returns a version’s validation partition" do
+    version = build(:version)
+
+    expect(version.validation_partition).to eq []
+  end
 end
