@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   root "tasks#index"
 
-  get "/user" => "tasks#index", as: :user_root
+  # get "/user" => "tasks#index", as: :user_root
 end

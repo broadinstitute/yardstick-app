@@ -72,9 +72,9 @@ const Registration = ({flash, errors}: RegistrationProps) => {
                   autoComplete="username"
                   autoFocus
                   fullWidth
-                  id="usernaame"
+                  id="username"
                   label="Username"
-                  name="username"
+                  name="user[username]"
                   variant="outlined"
                 />
               </Grid>
@@ -85,7 +85,7 @@ const Registration = ({flash, errors}: RegistrationProps) => {
                   fullWidth
                   id="email"
                   label="E-mail address"
-                  name="email"
+                  name="user[email]"
                   variant="outlined"
                 />
               </Grid>
@@ -96,7 +96,7 @@ const Registration = ({flash, errors}: RegistrationProps) => {
                   fullWidth
                   id="password"
                   label="Password"
-                  name="password"
+                  name="user[password]"
                   type="password"
                   variant="outlined"
                 />
