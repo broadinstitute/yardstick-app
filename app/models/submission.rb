@@ -1,6 +1,6 @@
 class Submission < ApplicationRecord
-  belongs_to :version
   belongs_to :profile
+  belongs_to :version
 
   has_many :scores
 end

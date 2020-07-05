@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Challenge, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Challenge, "#task" do
+  it "returns the challenge’s task" do
+    user = build(:challenge)
+
+    expect(user.task.name).to eq "Instance segmentation"
+  end
 end
