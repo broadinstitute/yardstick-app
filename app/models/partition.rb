@@ -1,0 +1,2 @@
+class Partition < ApplicationRecord
+end
