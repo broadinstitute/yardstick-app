@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :submissions
   resources :scores
   resources :challenges
   devise_for :users
