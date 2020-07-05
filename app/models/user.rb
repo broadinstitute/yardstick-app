@@ -5,5 +5,7 @@ class User < ApplicationRecord
   devise :rememberable
   devise :validatable
 
+  has_many :submissions
+
   has_one :profile
 end

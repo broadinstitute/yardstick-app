@@ -1,0 +1,59 @@
+tasks:
+  - name: Instance segmentation
+    description: Classify, detect, and delineate discrete objects.
+    challenges:
+      - name: Eukaryote components
+        description:
+        versions:
+          - name: "1.0.0"
+            description: ""
+            test_split: ""
+            training_split: ""
+            validation_split: ""
+    metrics:
+      - name: foo
+        description: bar
+  - name: Object detection
+    description: Classify and detect discrete objects.
+    metrics:
+      - name: average precision (AP)
+        description:
+    challenges:
+      - name: Eukaryote components
+        description:
+        versions:
+          - name: "1.0.0"
+            description: ""
+            test_split: ""
+            training_split: ""
+            validation_split: ""
+  - name: Semantic segmentation
+    description: Classify every pixel in an image with an appropriate category.
+    challenges:
+      - name: Eukaryote components
+        description:
+        versions:
+          - name: "1.0.0"
+            description: ""
+            test_split: ""
+            training_split: ""
+            validation_split: ""
+    metrics:
+      - name: foo
+        description: bar
+  - name: Super-resolution
+    description: Increase the magnification of an image.
+    challenges:
+      - name: Eukaryote components
+        description:
+        versions:
+          - name: "1.0.0"
+            description: ""
+            test_split: ""
+            training_split: ""
+            validation_split: ""
+    metrics:
+      - name: peak signal-to-noise ratio (PSNR)
+        description:
+      - name: structural similarity index (SSIM)
+        description:
