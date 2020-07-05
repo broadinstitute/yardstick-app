@@ -13,7 +13,7 @@ const Navigation = ({authenticated}: NavigationProps) => {
     const classes = useStyles();
 
     return (
-        <AppBar position="static">
+        <AppBar color="inherit" position="static">
             <Toolbar>
                 <Typography variant="h6" className={classes.title}>
                     Yardstick
