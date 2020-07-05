@@ -4,7 +4,7 @@ describe Version, "#challenge" do
   it "returns a version’s challenge" do
     version = build(:version)
 
-    expect(version.challenge).to eq []
+    expect(version.challenge.name).to eq ""
   end
 end
 
@@ -28,7 +28,7 @@ describe Version, "#test_partition" do
   it "returns a version’s test partition" do
     version = build(:version)
 
-    expect(version.test_partition).to eq []
+    expect(version.test_partition.description).to eq ""
   end
 end
 
@@ -36,7 +36,7 @@ describe Version, "#training_partition" do
   it "returns a version’s training partition" do
     version = build(:version)
 
-    expect(version.training_partition).to eq []
+    expect(version.training_partition.description).to eq ""
   end
 end
 
@@ -44,6 +44,6 @@ describe Version, "#validation_partition" do
   it "returns a version’s validation partition" do
     version = build(:version)
 
-    expect(version.validation_partition).to eq []
+    expect(version.validation_partition.description).to eq ""
   end
 end
