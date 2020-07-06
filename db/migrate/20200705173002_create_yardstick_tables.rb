@@ -19,12 +19,14 @@ class CreateYardstickTables < ActiveRecord::Migration[6.0]
 
     create_table :tasks, id: :uuid do |table|
       table.string     :name,                   default: "", null: false
+      table.string     :slug,                   default: "", null: false
       table.text       :description,            default: "", null: false
       table.timestamps
     end
 
     create_table :challenges, id: :uuid do |table|
       table.string     :name,                   default: "", null: false
+      table.string     :slug,                   default: "", null: false
       table.text       :description,            default: "", null: false
       table.timestamps
     end

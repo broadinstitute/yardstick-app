@@ -7,6 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import UserMenu from "./UserMenu";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 type NavigationProps = {
     authenticated: boolean
@@ -29,6 +30,7 @@ const Navigation = ({authenticated}: NavigationProps) => {
 
     return (
         <AppBar color="inherit" position="static">
+            <CssBaseline/>
             <Toolbar>
                 <Typography variant="h6" className={classes.title}>
                     Yardstick
