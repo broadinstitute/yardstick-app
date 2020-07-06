@@ -1,8 +1,20 @@
 import * as React from "react";
 
-type TasksProps = {}
+type Task = {
+    created_at: string
+    description: string
+    id: string
+    name: string
+    updated_at: string
+}
 
-const Tasks = ({}: TasksProps) => {
+type TasksProps = {
+    tasks: Array<Task>
+}
+
+const Tasks = ({tasks}: TasksProps) => {
+    console.log(tasks);
+
     return <div/>
 };
 
