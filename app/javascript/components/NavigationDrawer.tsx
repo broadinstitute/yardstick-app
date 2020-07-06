@@ -28,8 +28,8 @@ const NavigationDrawer = ({onClose, open, tasks}: NavigationDrawerProps) => {
 
         return (
             <List key={key} subheader={subheader}>
-                <ListItem dense>
-                    <ListItemText primary={""}/>
+                <ListItem button>
+                    <ListItemText primary={"foo"}/>
                 </ListItem>
             </List>
         )

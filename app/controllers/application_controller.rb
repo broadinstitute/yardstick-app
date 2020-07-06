@@ -12,5 +12,7 @@ class ApplicationController < ActionController::Base
 
   def set_tasks
     @tasks = Task.all
+
+    @challenges = Challenge.all
   end
 end
