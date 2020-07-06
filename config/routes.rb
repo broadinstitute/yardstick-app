@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  resources :submissions
-  resources :scores
-  resources :challenges
   devise_for :users
 
-  get "/profiles" => "profiles#new", as: :user_root
+  resources :challenges,  only: %i{index, show}
+  resources :profiles,    only: %i{create, destroy, show, update}
+  resources :submissions, only: %i{create, destroy, index, show, update}
+  resources :tasks,       only: %i{index, show}
 
-  resources :profiles
-  resources :tasks
+  get "/profiles" => "profiles#new", as: :user_root
 
   root "tasks#index"
 end
