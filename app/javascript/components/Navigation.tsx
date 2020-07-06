@@ -4,8 +4,6 @@ import Typography from '@material-ui/core/Typography';
 import {useStyles} from "./Navigation.css";
 import {AppBar} from "@material-ui/core";
 import Toolbar from "@material-ui/core/Toolbar";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import UserMenu from "./UserMenu";

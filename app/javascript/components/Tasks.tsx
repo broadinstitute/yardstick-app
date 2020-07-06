@@ -1,21 +1,16 @@
 import * as React from "react";
-
-type Task = {
-    created_at: string
-    description: string
-    id: string
-    name: string
-    updated_at: string
-}
+import Container from "@material-ui/core/Container";
 
 type TasksProps = {
-    tasks: Array<Task>
+    tasks: any
 }
 
-const Tasks = ({tasks}: TasksProps) => {
-    console.log(tasks);
-
-    return <div/>
+const Tasks = ({}: TasksProps) => {
+    return (
+        <Container component="main" maxWidth="xs">
+            <div/>
+        </Container>
+    )
 };
 
 export default Tasks;
