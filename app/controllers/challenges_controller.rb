@@ -8,7 +8,7 @@ class ChallengesController < ApplicationController
   end
 
   private
-    def challenge_params
+    def challenge_parameters
       params.fetch(:challenge, {})
     end
 end
