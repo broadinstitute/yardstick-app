@@ -9,15 +9,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import UserMenu from "./UserMenu";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import MenuIcon from '@material-ui/icons/Menu';
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
-import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import MailIcon from '@material-ui/icons/Mail';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import ListItemText from "@material-ui/core/ListItemText";
+import NavigationDrawer from "./NavigationDrawer";
 
 type NavigationProps = {
     authenticated: boolean
@@ -43,21 +35,6 @@ const Navigation = ({authenticated}: NavigationProps) => {
     const onToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
-    const drawer = (
-        <div>
-            <div className={classes.toolbar} />
-            <Divider />
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-        </div>
-    );
 
     return (
         <div className={classes.root}>
@@ -103,35 +80,8 @@ const Navigation = ({authenticated}: NavigationProps) => {
                     }
                 </Toolbar>
             </AppBar>
-            <nav className={classes.drawer} aria-label="mailbox folders">
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                <Hidden smUp implementation="css">
-                    <Drawer
-                        variant="temporary"
-                        open={mobileOpen}
-                        onClose={onToggle}
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                        ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
-                        }}
-                    >
-                        {drawer}
-                    </Drawer>
-                </Hidden>
-                <Hidden xsDown implementation="css">
-                    <Drawer
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                        variant="permanent"
-                        open
-                    >
-                        {drawer}
-                    </Drawer>
-                </Hidden>
-            </nav>
+
+            <NavigationDrawer onClose={onToggle} open={mobileOpen}/>
         </div>
     );
 };
