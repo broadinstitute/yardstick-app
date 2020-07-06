@@ -13,13 +13,14 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 type NavigationDrawerProps = {
     onClose: () => void
     open: boolean
-    tasks: Array<[string, string]>
+    challenges: Array<{id: string, name: string}>
+    tasks: Array<{id: string, name: string, task_id: string}>
 }
 
 const NavigationDrawer = ({onClose, open, tasks}: NavigationDrawerProps) => {
     const classes = useStyles();
 
-    const challenges = tasks.map(([key, name]) => {
+    const challenges = tasks.map(({id, name}) => {
         const subheader = (
             <ListSubheader>
                 {name}
@@ -27,7 +28,7 @@ const NavigationDrawer = ({onClose, open, tasks}: NavigationDrawerProps) => {
         )
 
         return (
-            <List key={key} subheader={subheader}>
+            <List key={id} subheader={subheader}>
                 <ListItem button>
                     <ListItemText primary={"foo"}/>
                 </ListItem>

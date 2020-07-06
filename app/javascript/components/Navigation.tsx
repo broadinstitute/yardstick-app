@@ -7,13 +7,12 @@ import NavigationToolbar from "./NavigationToolbar";
 
 type NavigationProps = {
     authenticated: boolean
-    tasks: Array<[string, string]>
+    challenges: Array<{id: string, name: string}>
+    tasks: Array<{id: string, name: string, task_id: string}>
 }
 
-const Navigation = ({authenticated, tasks}: NavigationProps) => {
+const Navigation = ({authenticated, challenges, tasks}: NavigationProps) => {
     const classes = useStyles();
-
-    console.log(tasks)
 
     const [anchor, setAnchor] = React.useState<null | HTMLElement>(null);
 

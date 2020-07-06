@@ -13,7 +13,17 @@
   </head>
 
   <body>
-    <%= react_component("Navigation", {authenticated: user_signed_in?, flash: flash, tasks: @tasks.pluck(:id, :name)}) %>
+    <%=
+      react_component(
+          "Navigation",
+          {
+            authenticated: user_signed_in?,
+            flash: flash,
+            challenges: @challenges.select(:id, :name, :task_id).as_json,
+            tasks: @tasks.select(:id, :name).as_json
+          }
+      )
+    %>
 
     <%= yield %>
   </body>
