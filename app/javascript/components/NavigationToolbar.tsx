@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {useStyles} from "./Navigation.css";
+import {useStyles} from "./NavigationToolbar.css";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -38,19 +38,17 @@ const NavigationToolbar = ({anchor, authenticated, onClose, onOpen, onToggle}: N
             {
                 authenticated
                     ? <>
-                        <div>
-                            <IconButton
-                                aria-controls="appbar-user-menu"
-                                aria-haspopup="true"
-                                aria-label="account of current user"
-                                color="inherit"
-                                onClick={onOpen}
-                            >
-                                <AccountCircle />
-                            </IconButton>
+                        <IconButton
+                            aria-controls="appbar-user-menu"
+                            aria-haspopup="true"
+                            aria-label="account of current user"
+                            color="inherit"
+                            onClick={onOpen}
+                        >
+                            <AccountCircle />
+                        </IconButton>
 
-                            <UserMenu anchorEl={anchor} onClose={onClose}/>
-                        </div>
+                        <UserMenu anchorEl={anchor} onClose={onClose}/>
                     </>
                     : <>
                         <Button color="inherit" data-method="" href="/users/sign_in">Sign in</Button>
