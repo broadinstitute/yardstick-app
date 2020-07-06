@@ -8,14 +8,32 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import {useStyles} from "./NavigationDrawer.css";
+import ListSubheader from "@material-ui/core/ListSubheader";
 
 type NavigationDrawerProps = {
     onClose: () => void
     open: boolean
+    tasks: Array<[string, string]>
 }
 
-const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
+const NavigationDrawer = ({onClose, open, tasks}: NavigationDrawerProps) => {
     const classes = useStyles();
+
+    const challenges = tasks.map(([key, name]) => {
+        const subheader = (
+            <ListSubheader>
+                {name}
+            </ListSubheader>
+        )
+
+        return (
+            <List key={key} subheader={subheader}>
+                <ListItem dense>
+                    <ListItemText primary={""}/>
+                </ListItem>
+            </List>
+        )
+    });
 
     return (
         <nav aria-label="mailbox folders" className={classes.drawer}>
@@ -44,15 +62,7 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
                 <Drawer classes={{paper: classes.paper}} open variant="permanent">
                     <div className={classes.toolbar} />
                     <Divider />
-                    <List>
-                        <ListItem button>
-                            <ListItemIcon>
-                                <InboxIcon />
-                            </ListItemIcon>
-
-                            <ListItemText primary="Example" />
-                        </ListItem>
-                    </List>
+                    {challenges}
                 </Drawer>
             </Hidden>
         </nav>

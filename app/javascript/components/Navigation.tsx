@@ -7,10 +7,13 @@ import NavigationToolbar from "./NavigationToolbar";
 
 type NavigationProps = {
     authenticated: boolean
+    tasks: Array<[string, string]>
 }
 
-const Navigation = ({authenticated}: NavigationProps) => {
+const Navigation = ({authenticated, tasks}: NavigationProps) => {
     const classes = useStyles();
+
+    console.log(tasks)
 
     const [anchor, setAnchor] = React.useState<null | HTMLElement>(null);
 
@@ -44,7 +47,7 @@ const Navigation = ({authenticated}: NavigationProps) => {
                 />
             </AppBar>
 
-            <NavigationDrawer onClose={onToggle} open={toggled}/>
+            <NavigationDrawer onClose={onToggle} open={toggled} tasks={tasks}/>
         </div>
     );
 };

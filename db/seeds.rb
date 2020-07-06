@@ -1,7 +1,7 @@
-task_0 = Task.create(name: "instance segmentation")
-task_1 = Task.create(name: "object detection")
-task_2 = Task.create(name: "semantic segmentation")
-task_3 = Task.create(name: "super-resolution")
+task_0 = Task.create(name: "Instance segmentation")
+task_1 = Task.create(name: "Object detection")
+task_2 = Task.create(name: "Semantic segmentation")
+task_3 = Task.create(name: "Super-resolution")
 
 challenge_0 = Challenge.create(name: "eukaryote components", task: task_0)
 challenge_1 = Challenge.create(name: "eukaryote components", task: task_1)

@@ -1,5 +1,4 @@
 import * as React from "react";
-import Container from "@material-ui/core/Container";
 
 type TasksProps = {
     tasks: any
@@ -7,9 +6,7 @@ type TasksProps = {
 
 const Tasks = ({}: TasksProps) => {
     return (
-        <Container component="main" maxWidth="xs">
-            <div/>
-        </Container>
+        <div/>
     )
 };
 
