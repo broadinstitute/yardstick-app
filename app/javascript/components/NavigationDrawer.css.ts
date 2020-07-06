@@ -26,7 +26,7 @@ export const useStyles = makeStyles((theme: Theme) =>
             },
         },
         toolbar: theme.mixins.toolbar,
-        drawerPaper: {
+        paper: {
             width: drawerWidth,
         },
         content: {

@@ -1,12 +1,11 @@
 import * as React from "react";
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import ListItemText from "@material-ui/core/ListItemText";
 import {useStyles} from "./NavigationDrawer.css";
 
@@ -19,54 +18,41 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
     const classes = useStyles();
 
     return (
-        <nav className={classes.drawer} aria-label="mailbox folders">
-            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-            <Hidden smUp implementation="css">
+        <nav aria-label="mailbox folders" className={classes.drawer}>
+            <Hidden implementation="css" smUp>
                 <Drawer
-                    variant="temporary"
-                    open={open}
+                    ModalProps={{keepMounted: true}}
+                    classes={{paper: classes.paper}}
                     onClose={onClose}
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
+                    open={open}
+                    variant="temporary"
                 >
-                    <div>
-                        <div className={classes.toolbar} />
-                        <Divider />
-                        <List>
-                            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                                <ListItem button key={text}>
-                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                                    <ListItemText primary={text} />
-                                </ListItem>
-                            ))}
-                        </List>
-                    </div>
+                    <div className={classes.toolbar} />
+                    <Divider />
+                    <List>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+
+                            <ListItemText primary="Example" />
+                        </ListItem>
+                    </List>
                 </Drawer>
             </Hidden>
             <Hidden xsDown implementation="css">
-                <Drawer
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
-                    variant="permanent"
-                    open
-                >
-                    <div>
-                        <div className={classes.toolbar} />
-                        <Divider />
-                        <List>
-                            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                                <ListItem button dense key={text}>
-                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                                    <ListItemText primary={text} />
-                                </ListItem>
-                            ))}
-                        </List>
-                    </div>
+                <Drawer classes={{paper: classes.paper}} open variant="permanent">
+                    <div className={classes.toolbar} />
+                    <Divider />
+                    <List>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+
+                            <ListItemText primary="Example" />
+                        </ListItem>
+                    </List>
                 </Drawer>
             </Hidden>
         </nav>
