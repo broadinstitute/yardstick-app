@@ -13,11 +13,13 @@ class SubmissionsController < ApplicationController
 
     respond_to do |format|
       if @submission.save
-        format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
-        format.json { render :show, status: :created, location: @submission }
+        format.json do
+          render :show, status: :created, location: @submission
+        end
       else
-        format.html { render :new }
-        format.json { render json: @submission.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @submission.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -25,20 +27,24 @@ class SubmissionsController < ApplicationController
   def update
     respond_to do |format|
       if @submission.update(submission_parameters)
-        format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
-        format.json { render :show, status: :ok, location: @submission }
+        format.json do
+          render :show, status: :ok, location: @submission
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @submission.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @submission.errors, status: :unprocessable_entity
+        end
       end
     end
   end
 
   def destroy
     @submission.destroy
+
     respond_to do |format|
-      format.html { redirect_to submissions_url, notice: 'Submission was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json do
+        head :no_content
+      end
     end
   end
 
