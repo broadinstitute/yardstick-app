@@ -2,7 +2,7 @@ erblint:
   config_file: .erb-lint.yml
   enabled: true
 reek:
-  config_file: .reek
+  config_file: .reek.yml
   enabled: true
 rubocop:
   config_file: .rubocop.yml

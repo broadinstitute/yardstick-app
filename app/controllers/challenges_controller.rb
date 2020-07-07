@@ -1,23 +1,22 @@
 # frozen_string_literal: true
 
 class ChallengesController < ApplicationController
+  before_action :set_challenge, [:show]
+
   def index
     @challenges = Challenge.all
   end
 
   def show
-    @challenge = Challenge.find params[:id]
-
-    @versions = @challenge.versions.select :id, :name
-
-    @metrics = @challenge.versions.map do |version|
-      version.metrics.select :id, :name, :abbreviation
-    end
   end
 
   private
 
   def challenge_parameters
     params.fetch(:challenge, {})
+  end
+
+  def set_challenge
+    @challenge = Challenge.find params[:id]
   end
 end

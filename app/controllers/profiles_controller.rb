@@ -7,14 +7,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_parameters)
 
     respond_to do |format|
-      if @profile.save
-        format.json do
-          render :show, status: :created, location: @profile
-        end
-      else
-        format.json do
-          render json: @profile.errors, status: :unprocessable_entity
-        end
+      format.json do
+        render json: @profile.errors, status: :unprocessable_entity
       end
     end
   end
@@ -31,14 +25,8 @@ class ProfilesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @profile.update(profile_parameters)
-        format.json do
-          render :show, status: :ok, location: @profile
-        end
-      else
-        format.json do
-          render json: @profile.errors, status: :unprocessable_entity
-        end
+      format.json do
+        render json: @profile.errors, status: :unprocessable_entity
       end
     end
   end

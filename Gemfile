@@ -58,3 +58,4 @@ end
 
 gem "rubocop", "~> 0.87.1", require: false
 gem "rubocop-rails", "~> 2.6", require: false
+gem 'reek', '~> 6.0', '>= 6.0.1', require: false

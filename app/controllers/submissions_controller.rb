@@ -7,14 +7,8 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_parameters)
 
     respond_to do |format|
-      if @submission.save
-        format.json do
-          render :show, status: :created, location: @submission
-        end
-      else
-        format.json do
-          render json: @submission.errors, status: :unprocessable_entity
-        end
+      format.json do
+        render json: @submission.errors, status: :unprocessable_entity
       end
     end
   end
@@ -37,14 +31,8 @@ class SubmissionsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @submission.update(submission_parameters)
-        format.json do
-          render :show, status: :ok, location: @submission
-        end
-      else
-        format.json do
-          render json: @submission.errors, status: :unprocessable_entity
-        end
+      format.json do
+        render json: @submission.errors, status: :unprocessable_entity
       end
     end
   end
