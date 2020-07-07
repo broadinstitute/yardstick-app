@@ -1,40 +1,172 @@
-task_0 = Task.create(name: "Instance segmentation")
-task_1 = Task.create(name: "Object detection")
-task_2 = Task.create(name: "Semantic segmentation")
-task_3 = Task.create(name: "Super-resolution")
+instance_segmentation_task = Task.create(
+    name: "Instance segmentation",
+    slug: "instance-segmentation"
+)
 
-challenge_0 = Challenge.create(name: "Eukaryote structure", task: task_0)
-challenge_1 = Challenge.create(name: "Eukaryote structure", task: task_1)
-challenge_2 = Challenge.create(name: "Eukaryote structure", task: task_2)
+object_detection_task = Task.create(
+    name: "Object detection",
+    slug: "object-detection"
+)
 
-version_0 = Version.create(name: "1.0.0", challenge: challenge_0)
-version_1 = Version.create(name: "1.0.0", challenge: challenge_1)
-version_2 = Version.create(name: "1.0.0", challenge: challenge_2)
+semantic_segmentation_task = Task.create(
+    name: "Semantic segmentation",
+    slug: "semantic-segmentation"
+)
 
-metric_0 = Metric.create(name: "mean average precision (mAP)", version: version_0)
-metric_1 = Metric.create(name: "mean average precision (mAP)", version: version_1)
-metric_2 = Metric.create(name: "mean average precision (mAP)", version: version_2)
+super_resolution_task = Task.create(
+    name: "Super-resolution",
+    slug: "super-resolution"
+)
 
-training_partition_0 = Partition.create(endpoint: "training.tar.gz")
-training_partition_1 = Partition.create(endpoint: "training.tar.gz")
-training_partition_2 = Partition.create(endpoint: "training.tar.gz")
+instance_segmentation_eukaryote_structure_challenge = Challenge.create(
+    name: "Eukaryote structure",
+    slug: "eukaryote-structure",
+    task: instance_segmentation_task
+)
 
-validation_partition_0 = Partition.create(endpoint: "validation.tar.gz")
-validation_partition_1 = Partition.create(endpoint: "validation.tar.gz")
-validation_partition_2 = Partition.create(endpoint: "validation.tar.gz")
+object_detection_eukaryote_structure_challenge = Challenge.create(
+    name: "Eukaryote structure",
+    slug: "eukaryote-structure",
+    task: object_detection_task
+)
 
-test_partition_0 = Partition.create(endpoint: "test.tar.gz")
-test_partition_1 = Partition.create(endpoint: "test.tar.gz")
-test_partition_2 = Partition.create(endpoint: "test.tar.gz")
+semantic_segmentation_eukaryote_structure_challenge = Challenge.create(
+    name: "Eukaryote structure",
+    slug: "eukaryote-structure",
+    task: semantic_segmentation_task
+)
 
-version_0.training_partition = training_partition_0
-version_0.validation_partition = validation_partition_0
-version_0.test_partition = test_partition_0
+instance_segmentation_eukaryote_structure_challenge_version = Version.create(
+    name: "1.0.0",
+    challenge: instance_segmentation_eukaryote_structure_challenge
+)
 
-version_1.training_partition = training_partition_1
-version_1.validation_partition = validation_partition_1
-version_1.test_partition = test_partition_1
+object_detection_eukaryote_structure_challenge_version = Version.create(
+    name: "1.0.0",
+    challenge: object_detection_eukaryote_structure_challenge
+)
 
-version_2.training_partition = training_partition_2
-version_2.validation_partition = validation_partition_2
-version_2.test_partition = test_partition_2
+semantic_segmentation_eukaryote_structure_challenge_version = Version.create(
+    name: "1.0.0",
+    challenge: semantic_segmentation_eukaryote_structure_challenge
+)
+
+Metric.create(
+    name: "average precision",
+    abbreviation: "AP",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average precision (50% intersection over union)",
+    abbreviation: "AP (50% IoU)",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average precision (75% intersection over union)",
+    abbreviation: "AP (75% IoU)",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average precision (small objects)",
+    abbreviation: "AP-SMALL",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average precision (medium objects)",
+    abbreviation: "AP-MEDIUM",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average precision (large objects)",
+    abbreviation: "AP-LARGE",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average recall (1 detection per image)",
+    abbreviation: "AR-1",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average recall (10 detections per image)",
+    abbreviation: "AR-10",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average recall (100 detections per image)",
+    abbreviation: "AR-10",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average recall (small objects)",
+    abbreviation: "AR-SMALL",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average recall (medium objects)",
+    abbreviation: "AR-MEDIUM",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+Metric.create(
+    name: "average recall (large objects)",
+    abbreviation: "AR-LARGE",
+    version: object_detection_eukaryote_structure_challenge_version
+)
+
+training_partition_0 = Partition.create(
+    endpoint: "training.tar.gz"
+)
+
+training_partition_1 = Partition.create(
+    endpoint: "training.tar.gz"
+)
+
+training_partition_2 = Partition.create(
+    endpoint: "training.tar.gz"
+)
+
+validation_partition_0 = Partition.create(
+    endpoint: "validation.tar.gz"
+)
+
+validation_partition_1 = Partition.create(
+    endpoint: "validation.tar.gz"
+)
+
+validation_partition_2 = Partition.create(
+    endpoint: "validation.tar.gz"
+)
+
+test_partition_0 = Partition.create(
+    endpoint: "test.tar.gz"
+)
+
+test_partition_1 = Partition.create(
+    endpoint: "test.tar.gz"
+)
+
+test_partition_2 = Partition.create(
+    endpoint: "test.tar.gz"
+)
+
+instance_segmentation_eukaryote_structure_challenge_version.training_partition = training_partition_0
+instance_segmentation_eukaryote_structure_challenge_version.validation_partition = validation_partition_0
+instance_segmentation_eukaryote_structure_challenge_version.test_partition = test_partition_0
+
+object_detection_eukaryote_structure_challenge_version.training_partition = training_partition_1
+object_detection_eukaryote_structure_challenge_version.validation_partition = validation_partition_1
+object_detection_eukaryote_structure_challenge_version.test_partition = test_partition_1
+
+semantic_segmentation_eukaryote_structure_challenge_version.training_partition = training_partition_2
+semantic_segmentation_eukaryote_structure_challenge_version.validation_partition = validation_partition_2
+semantic_segmentation_eukaryote_structure_challenge_version.test_partition = test_partition_2

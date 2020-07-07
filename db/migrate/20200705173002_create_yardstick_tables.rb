@@ -45,6 +45,7 @@ class CreateYardstickTables < ActiveRecord::Migration[6.0]
 
     create_table :metrics, id: :uuid do |table|
       table.string     :name,                   default: "", null: false
+      table.string     :abbreviation,           default: "", null: false
       table.text       :description,            default: "", null: false
       table.string     :endpoint,               default: "", null: false
       table.timestamps
