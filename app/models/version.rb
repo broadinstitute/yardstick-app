@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Version < ApplicationRecord
   belongs_to :challenge
   belongs_to :training_partition,   class_name: 'Partition'

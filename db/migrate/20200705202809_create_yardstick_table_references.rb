@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateYardstickTableReferences < ActiveRecord::Migration[6.0]
   def change
     add_reference :challenges,  :task,                 foreign_key: true,                       type: :uuid

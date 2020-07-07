@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[destroy show update]
 

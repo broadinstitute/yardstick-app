@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 task = Task.create!(
   name: 'Instance segmentation',
   slug: 'instance-segmentation',
