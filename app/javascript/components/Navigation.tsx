@@ -7,8 +7,8 @@ import NavigationToolbar from "./NavigationToolbar";
 
 type NavigationProps = {
     authenticated: boolean
-    challenges: Array<{id: string, name: string}>
-    tasks: Array<{id: string, name: string, task_id: string}>
+    challenges: Array<{id: string, name: string, task_id: string}>
+    tasks: Array<{id: string, name: string}>
 }
 
 const Navigation = ({authenticated, challenges, tasks}: NavigationProps) => {
@@ -46,7 +46,12 @@ const Navigation = ({authenticated, challenges, tasks}: NavigationProps) => {
                 />
             </AppBar>
 
-            <NavigationDrawer onClose={onToggle} open={toggled} tasks={tasks}/>
+            <NavigationDrawer
+                challenges={challenges}
+                onClose={onToggle}
+                open={toggled}
+                tasks={tasks}
+            />
         </div>
     );
 };

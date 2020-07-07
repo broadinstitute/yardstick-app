@@ -3,9 +3,9 @@ task_1 = Task.create(name: "Object detection")
 task_2 = Task.create(name: "Semantic segmentation")
 task_3 = Task.create(name: "Super-resolution")
 
-challenge_0 = Challenge.create(name: "eukaryote components", task: task_0)
-challenge_1 = Challenge.create(name: "eukaryote components", task: task_1)
-challenge_2 = Challenge.create(name: "eukaryote components", task: task_2)
+challenge_0 = Challenge.create(name: "Eukaryote components", task: task_0)
+challenge_1 = Challenge.create(name: "Eukaryote components", task: task_1)
+challenge_2 = Challenge.create(name: "Eukaryote components", task: task_2)
 
 version_0 = Version.create(name: "1.0.0", challenge: challenge_0)
 version_1 = Version.create(name: "1.0.0", challenge: challenge_1)

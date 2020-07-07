@@ -9,29 +9,37 @@ import {useStyles} from "./NavigationDrawer.css";
 import ListSubheader from "@material-ui/core/ListSubheader";
 
 type NavigationDrawerProps = {
-    challenges: Array<{id: string, name: string}>
+    challenges: Array<{id: string, name: string, task_id: string}>
     onClose: () => void
     open: boolean
-    tasks: Array<{id: string, name: string, task_id: string}>
+    tasks: Array<{id: string, name: string}>
 }
 
 const NavigationDrawer = ({challenges, onClose, open, tasks}: NavigationDrawerProps) => {
     const classes = useStyles();
 
-    const c = tasks.map(({id, name}) => {
+    const t = tasks.map(({id, name}) => {
         const subheader = (
             <ListSubheader>
                 {name}
             </ListSubheader>
-        )
+        );
+
+        const c = challenges.filter(({task_id}) => id === task_id).map(({id, name}) => {
+            return (
+                <ListItem button key={id}>
+                    <ListItemText primary={name}/>
+                </ListItem>
+            );
+        });
+
+        console.log(c);
 
         return (
             <List key={id} subheader={subheader}>
-                <ListItem button>
-                    <ListItemText primary={"foo"}/>
-                </ListItem>
+                {c}
             </List>
-        )
+        );
     });
 
     return (
@@ -46,14 +54,14 @@ const NavigationDrawer = ({challenges, onClose, open, tasks}: NavigationDrawerPr
                 >
                     <div className={classes.toolbar} />
                     <Divider />
-                    {c}
+                    {t}
                 </Drawer>
             </Hidden>
             <Hidden xsDown implementation="css">
                 <Drawer classes={{paper: classes.paper}} open variant="permanent">
                     <div className={classes.toolbar} />
                     <Divider />
-                    {c}
+                    {t}
                 </Drawer>
             </Hidden>
         </nav>
