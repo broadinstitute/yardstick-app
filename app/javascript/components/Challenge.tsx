@@ -10,17 +10,17 @@ import Select from "@material-ui/core/Select";
 import Partitions from "./Partitions";
 
 type ChallengeProps = {
-    challenge: {
-        id: string
-        name: string
-        task_id: string
-    }
+    challenge: { id: string; name: string; task_id: string; }
+    metrics: any
+    versions: any
 }
 
-const Challenge = ({challenge}: ChallengeProps) => {
+const Challenge = ({challenge, metrics, versions}: ChallengeProps) => {
     const classes = useStyles();
 
-    const {id, name, task_id} = challenge;
+    console.log(versions);
+
+    const {name} = challenge;
 
     const [version, setVersion] = React.useState("1.0.0");
 

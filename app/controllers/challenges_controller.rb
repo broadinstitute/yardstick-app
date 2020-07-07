@@ -5,6 +5,10 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+
+    @versions = @challenge.versions
+    
+    @metrics = @challenge.versions.map { |version| version.metrics }
   end
 
   private
