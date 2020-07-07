@@ -14,6 +14,10 @@ Lint/RaiseException:
 Lint/StructNewOverride:
   Enabled: true
 
+Metrics/MethodLength:
+  Enabled: true
+  Max: 20
+
 Style/AccessorGrouping:
   Enabled: true
 Style/BisectedAttrAccessor:
