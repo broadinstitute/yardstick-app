@@ -2,6 +2,9 @@ require: rubocop-rails
 
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
@@ -42,3 +45,5 @@ Style/RedundantRegexpEscape:
   Enabled: true
 Style/SlicingWithRange:
   Enabled: true
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

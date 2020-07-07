@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'profiles/index', type: :view do
+RSpec.describe "profiles/index", type: :view do
   before(:each) do
     assign(:profiles, [
              Profile.create!,
@@ -10,7 +10,7 @@ RSpec.describe 'profiles/index', type: :view do
            ])
   end
 
-  it 'renders a list of profiles' do
+  it "renders a list of profiles" do
     render
   end
 end

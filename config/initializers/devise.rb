@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 Devise.setup do |config|
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   config.case_insensitive_keys = [:email]
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
   config.expire_all_remember_me_on_sign_out = true
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
   config.password_length = 6..128
   config.reconfirmable = true
   config.reset_password_within = 6.hours

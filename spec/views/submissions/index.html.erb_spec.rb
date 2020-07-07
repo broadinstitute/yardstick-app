@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'submissions/index', type: :view do
+RSpec.describe "submissions/index", type: :view do
   before(:each) do
     assign(:submissions, [
              Submission.create!,
@@ -10,7 +10,7 @@ RSpec.describe 'submissions/index', type: :view do
            ])
   end
 
-  it 'renders a list of submissions' do
+  it "renders a list of submissions" do
     render
   end
 end

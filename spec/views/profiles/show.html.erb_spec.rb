@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'profiles/show', type: :view do
+RSpec.describe "profiles/show", type: :view do
   before(:each) do
     @profile = assign(:profile, Profile.create!)
   end
 
-  it 'renders attributes in <p>' do
+  it "renders attributes in <p>" do
     render
   end
 end
