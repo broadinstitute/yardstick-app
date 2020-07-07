@@ -22,6 +22,8 @@ Style/AccessorGrouping:
   Enabled: true
 Style/BisectedAttrAccessor:
   Enabled: true
+Style/Documentation:
+  Enabled: false
 Style/ExponentialNotation:
   Enabled: true
 Style/HashEachMethods:

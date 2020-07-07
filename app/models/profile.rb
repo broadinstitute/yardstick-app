@@ -3,7 +3,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  has_many :submissions
+  has_many :submissions, dependent: :destroy
 
   validates :location, presence: true
   validates :name,     presence: true

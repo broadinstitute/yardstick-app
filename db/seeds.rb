@@ -12,7 +12,7 @@ challenge = task.challenges.create!(
   description: 'foo'
 )
 
-version = challenge.versions.create!(
+challenge.versions.create!(
   name: '1.0.0',
   description: 'foo',
   training_partition: Partition.create!(
@@ -165,7 +165,7 @@ challenge = task.challenges.create!(
   description: 'foo'
 )
 
-version = challenge.versions.create!(
+challenge.versions.create!(
   name: '1.0.0',
   description: 'foo',
   training_partition: Partition.create!(
@@ -185,7 +185,7 @@ version = challenge.versions.create!(
   )
 )
 
-super_resolution_task = Task.create!(
+Task.create!(
   name: 'Super-resolution',
   slug: 'super-resolution',
   description: 'foo'

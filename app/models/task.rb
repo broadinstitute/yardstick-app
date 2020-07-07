@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
-  has_many :challenges
+  has_many :challenges, dependent: :destroy
 
   validates :description, presence: true
   validates :name,        presence: true, uniqueness: true

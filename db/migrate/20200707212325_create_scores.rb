@@ -7,7 +7,7 @@ class CreateScores < ActiveRecord::Migration[6.0]
       table.timestamps
     end
 
-    add_reference :scores,      :metric,               foreign_key: true,                       type: :uuid
-    add_reference :scores,      :submission,           foreign_key: true,                       type: :uuid
+    add_reference :scores, :metric, foreign_key: true, type: :uuid
+    add_reference :scores, :submission, foreign_key: true, type: :uuid
   end
 end

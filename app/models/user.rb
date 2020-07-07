@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :rememberable
   devise :validatable
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
   validates :email,              presence: true
   validates :encrypted_password, presence: true
