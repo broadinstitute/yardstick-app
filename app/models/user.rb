@@ -6,4 +6,8 @@ class User < ApplicationRecord
   devise :validatable
 
   has_one :profile
+
+  validates :email,              presence: true
+  validates :encrypted_password, presence: true
+  validates :username,           presence: true
 end

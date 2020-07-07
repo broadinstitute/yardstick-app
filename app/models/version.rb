@@ -6,4 +6,7 @@ class Version < ApplicationRecord
 
   has_many :metrics
   has_many :submissions
+
+  validates :description, presence: true
+  validates :name,        presence: true
 end

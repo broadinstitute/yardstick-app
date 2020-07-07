@@ -12,6 +12,9 @@ export const useStyles = makeStyles((theme: Theme) =>
         },
         title: {
             flexGrow: 1,
+            [theme.breakpoints.up('sm')]: {
+                marginLeft: drawerWidth - 46,
+            },
         },
         drawer: {
             [theme.breakpoints.up('sm')]: {

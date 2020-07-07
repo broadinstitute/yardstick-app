@@ -39,7 +39,8 @@ class CreateYardstickTables < ActiveRecord::Migration[6.0]
 
     create_table :partitions, id: :uuid do |table|
       table.text       :description,            default: "", null: false
-      table.string     :endpoint,               default: "", null: false
+      table.string     :href,                   default: "", null: false
+      table.string     :checksum,               default: "", null: false
       table.timestamps
     end
 
@@ -47,7 +48,7 @@ class CreateYardstickTables < ActiveRecord::Migration[6.0]
       table.string     :name,                   default: "", null: false
       table.string     :abbreviation,           default: "", null: false
       table.text       :description,            default: "", null: false
-      table.string     :endpoint,               default: "", null: false
+      table.string     :href,                   default: "", null: false
       table.timestamps
     end
 
