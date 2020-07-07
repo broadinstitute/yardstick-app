@@ -25,15 +25,15 @@ const NavigationDrawer = ({challenges, onClose, open, tasks}: NavigationDrawerPr
             </ListSubheader>
         );
 
-        const c = challenges.filter(({task_id}) => id === task_id).map(({id, name}) => {
-            return (
-                <ListItem button key={id}>
-                    <ListItemText primary={name}/>
-                </ListItem>
-            );
-        });
-
-        console.log(c);
+        const c = challenges
+            .filter(({task_id}) => id === task_id)
+            .map(({id, name, task_id}) => {
+                return (
+                    <ListItem button href={`/tasks/${task_id}/challenges/${id}`} key={id}>
+                        <ListItemText primary={name}/>
+                    </ListItem>
+                );
+            });
 
         return (
             <List key={id} subheader={subheader}>
