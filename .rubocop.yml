@@ -1,5 +1,3 @@
-require: rubocop-rails
-
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 Layout/HashAlignment:
