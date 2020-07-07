@@ -9,6 +9,7 @@ class CreateMetrics < ActiveRecord::Migration[6.0]
       table.string     :href,         default: "", null: false
       table.timestamps
     end
+
     add_reference :metrics, :version, foreign_key: true, type: :uuid
   end
 end
