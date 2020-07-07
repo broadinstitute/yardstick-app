@@ -8,7 +8,8 @@ class TasksController < ApplicationController
   end
 
   private
-    def task_parameters
-      params.fetch(:task, {})
-    end
+
+  def task_parameters
+    params.fetch(:task, {})
+  end
 end

@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-  before_action :set_submission, only: %i{destroy show update}
+  before_action :set_submission, only: %i[destroy show update]
 
   def create
     @submission = Submission.new(submission_parameters)
@@ -31,8 +31,7 @@ class SubmissionsController < ApplicationController
     @submissions = Submission.all
   end
 
-  def show
-  end
+  def show; end
 
   def update
     respond_to do |format|
@@ -49,11 +48,12 @@ class SubmissionsController < ApplicationController
   end
 
   private
-    def set_submission
-      @submission = Submission.find(params[:id])
-    end
 
-    def submission_parameters
-      params.fetch(:submission, {})
-    end
+  def set_submission
+    @submission = Submission.find(params[:id])
+  end
+
+  def submission_parameters
+    params.fetch(:submission, {})
+  end
 end

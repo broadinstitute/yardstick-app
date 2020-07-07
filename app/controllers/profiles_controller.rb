@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i{destroy show update}
+  before_action :set_profile, only: %i[destroy show update]
 
   def create
     @profile = Profile.new(profile_parameters)
@@ -26,7 +26,7 @@ class ProfilesController < ApplicationController
       end
     end
   end
-  
+
   def update
     respond_to do |format|
       if @profile.update(profile_parameters)
@@ -41,15 +41,15 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   private
-    def set_profile
-      @profile = Profile.find(params[:id])
-    end
 
-    def profile_parameters
-      params.fetch(:profile, {})
-    end
+  def set_profile
+    @profile = Profile.find(params[:id])
+  end
+
+  def profile_parameters
+    params.fetch(:profile, {})
+  end
 end

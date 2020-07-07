@@ -13,8 +13,8 @@ class CreateYardstickTableReferences < ActiveRecord::Migration[6.0]
     add_reference :submissions, :version,              foreign_key: true,                       type: :uuid
 
     add_reference :versions,    :challenge,            foreign_key: true,                       type: :uuid
-    add_reference :versions,    :training_partition,   foreign_key: { to_table: "partitions" }, type: :uuid
-    add_reference :versions,    :validation_partition, foreign_key: { to_table: "partitions" }, type: :uuid
-    add_reference :versions,    :test_partition,       foreign_key: { to_table: "partitions" }, type: :uuid
+    add_reference :versions,    :training_partition,   foreign_key: { to_table: 'partitions' }, type: :uuid
+    add_reference :versions,    :validation_partition, foreign_key: { to_table: 'partitions' }, type: :uuid
+    add_reference :versions,    :test_partition,       foreign_key: { to_table: 'partitions' }, type: :uuid
   end
 end
