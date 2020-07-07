@@ -8,7 +8,7 @@ class Version < ApplicationRecord
   has_many :submissions
 
   validates :description, presence: true
-  validates :name,        presence: true
+  validates :name,        presence: true, uniqueness: { scope: :challenge_id }
 
   validates_associated :metrics
   validates_associated :submissions

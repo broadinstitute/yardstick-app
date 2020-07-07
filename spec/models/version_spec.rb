@@ -4,7 +4,7 @@ describe Version, "#challenge" do
   it "returns a version’s challenge" do
     version = build(:version)
 
-    expect(version.challenge.name).to eq ""
+    expect(version.challenge.name).to eq "Eukaryote structure"
   end
 end
 

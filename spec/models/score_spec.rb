@@ -4,7 +4,7 @@ describe Score, "#metric" do
   it "returns a score’s metric" do
     score = build(:score)
 
-    expect(score.metric.name).to eq ""
+    expect(score.metric.name).to eq "average precision"
   end
 end
 

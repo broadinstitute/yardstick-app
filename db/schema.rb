@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_203840) do
     t.string "name", default: "", null: false
     t.string "abbreviation", default: "", null: false
     t.text "description", default: "", null: false
-    t.string "endpoint", default: "", null: false
+    t.string "href", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.uuid "version_id"
@@ -60,7 +60,8 @@ ActiveRecord::Schema.define(version: 2020_07_05_203840) do
 
   create_table "partitions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "description", default: "", null: false
-    t.string "endpoint", default: "", null: false
+    t.string "href", default: "", null: false
+    t.string "checksum", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
