@@ -6,4 +6,6 @@ class Profile < ApplicationRecord
   validates :location, presence: true
   validates :name,     presence: true
   validates :website,  presence: true
+
+  validates_associated :submissions
 end

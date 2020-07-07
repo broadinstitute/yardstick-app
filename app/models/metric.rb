@@ -3,8 +3,10 @@ class Metric < ApplicationRecord
 
   has_many :scores
 
-  validates :abbreviation,  presence: true
-  validates :description,   presence: true
-  validates :href,          presence: true
-  validates :name,          presence: true
+  validates :abbreviation, presence: true
+  validates :description,  presence: true
+  validates :href,         presence: true
+  validates :name,         presence: true
+
+  validates_associated :scores
 end

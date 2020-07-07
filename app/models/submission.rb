@@ -6,4 +6,6 @@ class Submission < ApplicationRecord
 
   validates :description, presence: true
   validates :name,        presence: true
+
+  validates_associated :scores
 end
