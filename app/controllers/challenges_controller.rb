@@ -4,11 +4,13 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    @challenge = Challenge.find(params[:id])
+    @challenge = Challenge.find params[:id]
 
-    @versions = @challenge.versions
+    @versions = @challenge.versions.select :id, :name
     
-    @metrics = @challenge.versions.map { |version| version.metrics }
+    @metrics = @challenge.versions.map do |version|
+      version.metrics.select :id, :name, :abbreviation
+    end
   end
 
   private

@@ -11,14 +11,12 @@ import Partitions from "./Partitions";
 
 type ChallengeProps = {
     challenge: { id: string; name: string; task_id: string; }
-    metrics: any
-    versions: any
+    metrics: Array<{id: string, name: string, abbreviation: string}>
+    versions: Array<{id: string, name: string}>
 }
 
 const Challenge = ({challenge, metrics, versions}: ChallengeProps) => {
     const classes = useStyles();
-
-    console.log(versions);
 
     const {name} = challenge;
 
@@ -52,11 +50,11 @@ const Challenge = ({challenge, metrics, versions}: ChallengeProps) => {
 
             <br/>
 
-            <Partitions/>
+            <ChallengeTable metrics={metrics}/>
 
             <br/>
 
-            <ChallengeTable/>
+            <Partitions/>
         </main>
     )
 };
