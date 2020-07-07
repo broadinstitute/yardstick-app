@@ -3,8 +3,8 @@
 class CreateVersions < ActiveRecord::Migration[6.0]
   def change
     create_table :versions, id: :uuid do |table|
-      table.string     :name,                   default: "", null: false
-      table.text       :description,            default: "", null: false
+      table.string     :name,        default: "", null: false
+      table.text       :description, default: "", null: false
       table.timestamps
     end
 
