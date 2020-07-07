@@ -29,7 +29,7 @@ const NavigationDrawer = ({challenges, onClose, open, tasks}: NavigationDrawerPr
             .filter(({task_id}) => id === task_id)
             .map(({id, name, task_id}) => {
                 return (
-                    <ListItem button href={`/tasks/${task_id}/challenges/${id}`} key={id}>
+                    <ListItem button component="a" href={`/tasks/${task_id}/challenges/${id}`} key={id}>
                         <ListItemText primary={name}/>
                     </ListItem>
                 );
