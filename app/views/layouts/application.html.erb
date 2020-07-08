@@ -13,17 +13,7 @@
   </head>
 
   <body>
-    <%=
-      react_component(
-          "Navigation",
-          {
-            authenticated: user_signed_in?,
-            flash: flash,
-            challenges: @challenges.select(:id, :name, :task_id).as_json,
-            tasks: @tasks.select(:id, :name).as_json
-          }
-      )
-    %>
+    <%= react_component("Application", {authenticated: user_signed_in?, flash: flash}) %>
 
     <%= yield %>
   </body>

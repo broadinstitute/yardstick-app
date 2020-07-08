@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root "tasks#index"
+  root "home#index"
 end

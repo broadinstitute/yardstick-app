@@ -8,6 +8,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Partitions from "./Partitions";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 type ChallengeProps = {
     challenge: { id: string; name: string; task_id: string; }
@@ -19,6 +21,10 @@ const Challenge = ({challenge, metrics, versions}: ChallengeProps) => {
     const classes = useStyles();
 
     const {name} = challenge;
+
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [items, setItems] = useState([]);
 
     const [version, setVersion] = React.useState("1.0.0");
 
