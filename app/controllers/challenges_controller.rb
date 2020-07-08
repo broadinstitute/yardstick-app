@@ -1,20 +1,21 @@
 class ChallengesController < ApplicationController
+  before_action :set_task
+
   def index
-    @challenges = Challenge.all
+    @challenges = @task.challenges
   end
 
   def show
-    @challenge = Challenge.find params[:id]
-
-    @versions = @challenge.versions.select :id, :name
-    
-    @metrics = @challenge.versions.map do |version|
-      version.metrics.select :id, :name, :abbreviation
-    end
+    @challenge = @task.challenges.find(params[:id])
   end
 
   private
-    def challenge_parameters
-      params.fetch(:challenge, {})
-    end
+
+  def challenge_parameters
+    params.fetch(:challenge, {})
+  end
+
+  def set_task
+    @task = Task.find(params[:task_id])
+  end
 end
