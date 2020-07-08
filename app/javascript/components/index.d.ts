@@ -43,9 +43,11 @@ type Submission = {
 };
 
 type Task = {
-    challenges: Array<Challenge>;
-    description: string;
+    id: string;
     name: string;
+    description: string;
+    url: string;
+    challenges: Array<Challenge>;
 };
 
 type User = {
