@@ -4,7 +4,11 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.new(submission_parameters)
 
-    render json: @submission.errors, status: :unprocessable_entity
+    if @submission.save
+      render :show, status: :created, location: @submission
+    else
+      render json: @submission.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -21,7 +25,11 @@ class SubmissionsController < ApplicationController
   end
 
   def update
-    render json: @submission.errors, status: :unprocessable_entity
+    if @submission.update(profile_parameters)
+      render :show, status: :ok, location: @submission
+    else
+      render json: @submission.errors, status: :unprocessable_entity
+    end
   end
 
   private
