@@ -6,8 +6,7 @@ class CreateMetrics < ActiveRecord::Migration[6.0]
       table.string     :name,         default: "", null: false
       table.text       :description,  default: "", null: false
       table.timestamps
+      table.references :version, foreign_key: true, type: :uuid
     end
-
-    add_reference :metrics, :version, foreign_key: true, type: :uuid
   end
 end

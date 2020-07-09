@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2020_07_09_145248) do
     t.string "name", default: "", null: false
     t.string "slug", default: "", null: false
     t.text "description", default: "", null: false
+    t.uuid "task_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.uuid "task_id"
     t.index ["task_id"], name: "index_challenges_on_task_id"
   end
 
@@ -68,10 +68,10 @@ ActiveRecord::Schema.define(version: 2020_07_09_145248) do
 
   create_table "scores", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.decimal "value", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.uuid "metric_id"
     t.uuid "submission_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["metric_id"], name: "index_scores_on_metric_id"
     t.index ["submission_id"], name: "index_scores_on_submission_id"
   end

@@ -4,9 +4,8 @@ class CreateSubmissions < ActiveRecord::Migration[6.0]
       table.string     :name,        default: "", null: false
       table.text       :description, default: "", null: false
       table.timestamps
+      table.references :user,    foreign_key: true, type: :uuid
+      table.references :version, foreign_key: true, type: :uuid
     end
-
-    add_reference :submissions, :user,    { foreign_key: true, type: :uuid }
-    add_reference :submissions, :version, { foreign_key: true, type: :uuid }
   end
 end

@@ -4,11 +4,10 @@ class CreateVersions < ActiveRecord::Migration[6.0]
       table.string     :name,        default: "", null: false
       table.text       :description, default: "", null: false
       table.timestamps
+      table.references :challenge,            foreign_key: true,                       type: :uuid
+      table.references :training_partition,   foreign_key: { to_table: "partitions" }, type: :uuid
+      table.references :validation_partition, foreign_key: { to_table: "partitions" }, type: :uuid
+      table.references :test_partition,       foreign_key: { to_table: "partitions" }, type: :uuid
     end
-
-    add_reference :versions,    :challenge,            foreign_key: true,                       type: :uuid
-    add_reference :versions,    :training_partition,   foreign_key: { to_table: "partitions" }, type: :uuid
-    add_reference :versions,    :validation_partition, foreign_key: { to_table: "partitions" }, type: :uuid
-    add_reference :versions,    :test_partition,       foreign_key: { to_table: "partitions" }, type: :uuid
   end
 end

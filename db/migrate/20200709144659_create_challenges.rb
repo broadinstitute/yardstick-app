@@ -4,9 +4,8 @@ class CreateChallenges < ActiveRecord::Migration[6.0]
       table.string     :name,        default: "", null: false
       table.string     :slug,        default: "", null: false
       table.text       :description, default: "", null: false
+      table.references :task, foreign_key: true, type: :uuid
       table.timestamps
     end
-
-    add_reference :challenges, :task, foreign_key: true, type: :uuid
   end
 end
