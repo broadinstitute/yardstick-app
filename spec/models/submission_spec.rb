@@ -8,8 +8,8 @@ describe Submission, "#score" do
   end
 end
 
-describe Submission, "#user" do
-  it "returns a submission’s user" do
+describe Submission, "#user.json" do
+  it "returns a submission’s user.json" do
     submission = build(:submission)
 
     expect(submission.user.name).to eq ""
