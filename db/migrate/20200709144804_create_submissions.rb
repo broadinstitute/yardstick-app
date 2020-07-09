@@ -6,7 +6,7 @@ class CreateSubmissions < ActiveRecord::Migration[6.0]
       table.timestamps
     end
 
-    add_reference :submissions, :profile, foreign_key: true, type: :uuid
-    add_reference :submissions, :version, foreign_key: true, type: :uuid
+    add_reference :submissions, :user,    { foreign_key: true, type: :uuid }
+    add_reference :submissions, :version, { foreign_key: true, type: :uuid }
   end
 end
