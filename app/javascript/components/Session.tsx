@@ -14,6 +14,7 @@ import Container from '@material-ui/core/Container';
 import {useStyles} from "./Session.css";
 import {FormFor} from "react-rails-form-helpers";
 import Alert from "@material-ui/lab/Alert";
+import Copyright from "./Copyright";
 
 const Session = () => {
     const classes = useStyles();
@@ -110,14 +111,7 @@ const Session = () => {
             </div>
 
             <Box mt={8}>
-                <Typography variant="body2" color="textSecondary" align="center">
-                    {'Copyright © '}
-                    {new Date().getFullYear()}{' '}
-                    <Link color="inherit" href="https://www.broadinstitute.org/">
-                        Broad Institute
-                    </Link>{'. '}
-                    {'All rights reserved.'}
-                </Typography>
+                <Copyright/>
             </Box>
         </Container>
     );
