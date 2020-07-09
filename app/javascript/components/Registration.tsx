@@ -1,20 +1,39 @@
 import * as React from "react";
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {useStyles} from "./Registration.css";
-import {FormFor} from "react-rails-form-helpers";
 import Alert from "@material-ui/lab/Alert";
 import Copyright from "./Copyright";
+import RegistrationForm from "./RegistrationForm";
+import {useState} from "react";
+import axios from "axios";
 
 
 const Registration = () => {
   const classes = useStyles();
+
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState<any>({});
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(event);
+    // axios.post("/users", { user: user})
+    //     .then(function (response) {
+    //       setLoading(true);
+    //
+    //       setUser(response.data);
+    //     })
+    //     .catch(function (error) {
+    //       setLoading(true);
+    //
+    //       setError(error);
+    //     });
+  }
 
   const messages = [].map(([kind, message]: [string, string], index: number) => {
     if (kind && message) {
@@ -50,6 +69,8 @@ const Registration = () => {
             Sign up for Yardstick
           </Typography>
 
+          <br/>
+
           {messages}
 
           {[].map((error: string, index: number) => {
@@ -60,55 +81,7 @@ const Registration = () => {
             );
           })}
 
-          <FormFor className={classes.form} method="post" name="sign-up" url="/users">
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="username"
-                  autoFocus
-                  fullWidth
-                  id="username"
-                  label="Username"
-                  name="user[username]"
-                  variant="outlined"
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="email"
-                  fullWidth
-                  id="email"
-                  label="E-mail address"
-                  name="user[email]"
-                  variant="outlined"
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="password"
-                  fullWidth
-                  id="password"
-                  label="Password"
-                  name="user[password]"
-                  type="password"
-                  variant="outlined"
-                />
-              </Grid>
-            </Grid>
-
-            <Button
-              className={classes.submit}
-              color="primary"
-              fullWidth
-              size="large"
-              type="submit"
-              variant="contained"
-            >
-              Sign Up
-            </Button>
-          </FormFor>
+          <RegistrationForm onSubmit={onSubmit}/>
         </div>
 
         <Copyright/>
