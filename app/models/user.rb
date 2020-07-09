@@ -1,5 +1,8 @@
+include Devise::JWT::RevocationStrategies::Denylist
+
 class User < ApplicationRecord
   devise :database_authenticatable
+  devise :jwt_authenticatable,      jwt_revocation_strategy: DenyList
   devise :recoverable
   devise :registerable
   devise :rememberable
