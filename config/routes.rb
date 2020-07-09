@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  controllers = {
+  devise_for :users, controllers: {
       registrations: "users/registrations",
       sessions: 'users/sessions',
   }
 
-  devise_for :users, controllers: controllers
+  resources :tasks do
+    resources :challenges
+  end
 
-  resources :tasks, only: [:index, :show] do
-    resources :challenges, only: [:index, :show] do
-      resources :submissions, only: [:create, :destroy, :index, :show, :update]
-    end
+  resources :users do
+    resources :submissions
   end
 
   root "home#index"

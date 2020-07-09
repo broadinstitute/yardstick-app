@@ -1,4 +1,5 @@
 class SubmissionsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy, :update]
   before_action :set_submission, only: [:destroy, :show, :update]
 
   def create
@@ -18,7 +19,7 @@ class SubmissionsController < ApplicationController
   end
 
   def index
-    @submissions = @challenge.submissions
+    @submissions = current_user.submissions
   end
 
   def show
@@ -34,12 +35,8 @@ class SubmissionsController < ApplicationController
 
   private
 
-  def set_challenge
-    @challenge = Challenge.find(params[:challenge_id])
-  end
-
   def set_submission
-    @submission = Submission.find(params[:id])
+    @submission = current_user.submissions.find(params[:id])
   end
 
   def submission_parameters
