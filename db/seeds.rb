@@ -1,190 +1,202 @@
-task = Task.create!(
-    name: "Instance segmentation",
-    slug: "instance-segmentation",
-    description: "foo"
+user = User.create!(
+    email:                "allen.goodman@icloud.com",
+    password:             "password",
+    username:             "0x00B1",
 )
 
-challenge = task.challenges.create!(
-    name: "Eukaryote structure",
-    slug: "eukaryote-structure",
-    description: "foo"
-)
-
-version = challenge.versions.create!(
-    name: "1.0.0",
-    description: "foo",
-    training_partition: Partition.create!(
-        checksum: "foo",
-        description: "foo",
-        href: "training.tar.gz"
-    ),
-    validation_partition: Partition.create!(
-        checksum: "foo",
-        description: "foo",
-        href: "validation.tar.gz"
-    ),
-    test_partition: Partition.create!(
-        checksum: "foo",
-        description: "foo",
-        href: "test.tar.gz"
-    ),
+user.profile.create!(
+    location:             "Somerville, MA",
+    name:                 "Allen Goodman",
+    website:              "https://www.broadinstitute.org",
 )
 
 task = Task.create!(
-    name: "Object detection",
-    slug: "object-detection",
-    description: "foo",
+    description:          "foo",
+    name:                 "Instance segmentation",
+    slug:                 "instance-segmentation",
 )
 
 challenge = task.challenges.create!(
-    name: "Eukaryote structure",
-    slug: "eukaryote-structure",
-    description: "foo",
+    description:          "foo",
+    name:                 "Eukaryote structure",
+    slug:                 "eukaryote-structure",
+)
+
+challenge.versions.create!(
+    description:          "foo",
+    name:                 "1.0.0",
+    test_partition: Partition.create!(
+        checksum:         "d131dd02c5e6eec4",
+        description:      "foo",
+        href:             "test.tar.gz"
+    ),
+    training_partition: Partition.create!(
+        checksum:         "d8823e3156348f5b",
+        description:      "foo",
+        href:             "training.tar.gz"
+    ),
+    validation_partition: Partition.create!(
+        checksum:         "55ad340609f4b302",
+        description:      "foo",
+        href:             "validation.tar.gz"
+    ),
+)
+
+task = Task.create!(
+    name:                 "Object detection",
+    slug:                 "object-detection",
+    description:          "foo",
+)
+
+challenge = task.challenges.create!(
+    name:                 "Eukaryote structure",
+    slug:                 "eukaryote-structure",
+    description:          "foo",
 )
 
 version = challenge.versions.create!(
-    name: "1.0.0",
-    description: "foo",
+    description:          "foo",
+    name:                 "1.0.0",
+    test_partition: Partition.create!(
+        checksum:         "d131dd02c5e6eec4",
+        description:      "foo",
+        href:             "test.tar.gz"
+    ),
     training_partition: Partition.create!(
-        checksum: "foo",
-        description: "foo",
-        href: "training.tar.gz"
+        checksum:         "d8823e3156348f5b",
+        description:      "foo",
+        href:             "training.tar.gz"
     ),
     validation_partition: Partition.create!(
-        checksum: "foo",
-        description: "foo",
-        href: "validation.tar.gz"
-    ),
-    test_partition: Partition.create!(
-        checksum: "foo",
-        description: "foo",
-        href: "test.tar.gz"
+        checksum:         "55ad340609f4b302",
+        description:      "foo",
+        href:             "validation.tar.gz"
     ),
 )
 
 Metric.create!(
     [
         {
-            name: "average precision",
             abbreviation: "AP",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average precision",
+            version:      version,
         },
         {
-            name: "average precision (50% intersection over union)",
             abbreviation: "AP-50%",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average precision (50% intersection over union)",
+            version:      version,
         },
         {
-            name: "average precision (75% intersection over union)",
             abbreviation: "AP-75%",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average precision (75% intersection over union)",
+            version:      version,
         },
         {
-            name: "average precision (small objects)",
             abbreviation: "AP-S",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average precision (small objects)",
+            version:      version,
         },
         {
-            name: "average precision (medium objects)",
             abbreviation: "AP-M",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average precision (medium objects)",
+            version:      version,
         },
         {
-            name: "average precision (large objects)",
             abbreviation: "AP-L",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average precision (large objects)",
+            version:      version,
         },
         {
-            name: "average recall (1 detection per image)",
             abbreviation: "AR-1",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average recall (1 detection per image)",
+            version:      version,
         },
         {
-            name: "average recall (10 detections per image)",
             abbreviation: "AR-10",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average recall (10 detections per image)",
+            version:      version,
         },
         {
-            name: "average recall (100 detections per image)",
             abbreviation: "AR-100",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average recall (100 detections per image)",
+            version:      version,
         },
         {
-            name: "average recall (small objects)",
             abbreviation: "AR-S",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average recall (small objects)",
+            version:      version,
         },
         {
-            name: "average recall (medium objects)",
             abbreviation: "AR-M",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average recall (medium objects)",
+            version:      version,
         },
         {
-            name: "average recall (large objects)",
             abbreviation: "AR-L",
-            href: "/",
-            description: "foo",
-            version: version
+            description:  "foo",
+            href:         "/",
+            name:         "average recall (large objects)",
+            version:      version,
         },
     ]
 )
 
 task = Task.create!(
-    name: "Semantic segmentation",
-    slug: "semantic-segmentation",
-    description: "foo",
+    description:          "foo",
+    name:                 "Semantic segmentation",
+    slug:                 "semantic-segmentation",
 )
 
 challenge = task.challenges.create!(
-    name: "Eukaryote structure",
-    slug: "eukaryote-structure",
-    description: "foo",
+    description:          "foo",
+    name:                 "Eukaryote structure",
+    slug:                 "eukaryote-structure",
 )
 
-version = challenge.versions.create!(
-    name: "1.0.0",
-    description: "foo",
+challenge.versions.create!(
+    description:          "foo",
+    name:                 "1.0.0",
+    test_partition: Partition.create!(
+        checksum:         "d131dd02c5e6eec4",
+        description:      "foo",
+        href:             "test.tar.gz"
+    ),
     training_partition: Partition.create!(
-        checksum: "foo",
-        description: "foo",
-        href: "training.tar.gz"
+        checksum:         "d8823e3156348f5b",
+        description:      "foo",
+        href:             "training.tar.gz"
     ),
     validation_partition: Partition.create!(
-        checksum: "foo",
-        description: "foo",
-        href: "validation.tar.gz"
-    ),
-    test_partition: Partition.create!(
-        checksum: "foo",
-        description: "foo",
-        href: "test.tar.gz"
+        checksum:         "55ad340609f4b302",
+        description:      "foo",
+        href:             "validation.tar.gz"
     ),
 )
 
-super_resolution_task = Task.create!(
-    name: "Super-resolution",
-    slug: "super-resolution",
-    description: "foo",
+Task.create!(
+    description:          "foo",
+    name:                 "Super-resolution",
+    slug:                 "super-resolution",
 )

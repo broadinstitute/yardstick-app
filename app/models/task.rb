@@ -6,4 +6,8 @@ class Task < ApplicationRecord
   validates :slug,        presence: true, uniqueness: true
 
   validates_associated :challenges
+
+  def to_param
+    "#{slug}"
+  end
 end

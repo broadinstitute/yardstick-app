@@ -8,4 +8,8 @@ class Challenge < ApplicationRecord
   validates :slug,        presence: true, uniqueness: { scope: :task_id }
 
   validates_associated :versions
+
+  def to_param
+    "#{slug}"
+  end
 end
