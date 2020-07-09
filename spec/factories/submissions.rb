@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :submission do
-    association :profile
+    association :user
     association :version
   end
 end

@@ -1,5 +1,5 @@
 class Submission < ApplicationRecord
-  belongs_to :profile
+  belongs_to :user
   belongs_to :version
 
   has_many :scores
@@ -7,5 +7,5 @@ class Submission < ApplicationRecord
   validates :description, presence: true
   validates :name,        presence: true
 
-  validates_associated :scores
+  validates_associated :user
 end

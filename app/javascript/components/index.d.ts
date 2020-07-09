@@ -20,14 +20,6 @@ type Partition = {
     href: string;
 };
 
-type Profile = {
-    location: string;
-    name: string;
-    submissions: Array<Submission>;
-    user: User;
-    website: string;
-}
-
 type Score = {
     metric: Metric;
     submission: Submission;
@@ -38,7 +30,6 @@ type Score = {
 type Submission = {
     description: string;
     name: string;
-    profile: Profile;
     version: Version;
 };
 
@@ -52,7 +43,6 @@ type Task = {
 
 type User = {
     email: string;
-    profile: Profile;
     username: string;
 }
 

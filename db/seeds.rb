@@ -1,12 +1,9 @@
-user = User.create!(
+User.create!(
     email:                "allen.goodman@icloud.com",
-    password:             "password",
-    username:             "0x00B1",
-)
-
-user.profile.create!(
     location:             "Somerville, MA",
     name:                 "Allen Goodman",
+    password:             "password",
+    username:             "0x00B1",
     website:              "https://www.broadinstitute.org",
 )
 

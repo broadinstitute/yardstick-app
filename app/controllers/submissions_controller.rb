@@ -25,7 +25,7 @@ class SubmissionsController < ApplicationController
   end
 
   def update
-    if @submission.update(profile_parameters)
+    if @submission.update(submission_parameters)
       render :show, status: :ok, location: @submission
     else
       render json: @submission.errors, status: :unprocessable_entity
