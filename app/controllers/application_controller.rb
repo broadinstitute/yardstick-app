@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
 
   skip_before_action :verify_authenticity_token
 
-  def current_user
-    current_user
-  end
-
   protected
 
   def configure_permitted_parameters

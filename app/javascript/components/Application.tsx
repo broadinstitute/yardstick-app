@@ -1,30 +1,59 @@
 import * as React from "react";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useStyles} from "./Application.css";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import NavigationDrawer from "./NavigationDrawer";
+import Navigation from "./Navigation";
+import {Router} from "@reach/router"
+import Session from "./Session";
+import Registration from "./Registration";
 
 type ApplicationProps = {}
 
 const Application = ({}: ApplicationProps) => {
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [tasks, setTasks] = useState<Array<Task>>([]);
+    const classes = useStyles();
 
-    useEffect(() => {
-        axios.get("/tasks.json")
-            .then(function (response) {
-                setLoading(true);
+    const [anchor, setAnchor] = React.useState<null | HTMLElement>(null);
 
-                setTasks(response.data);
-            })
-            .catch(function (error) {
-                setLoading(true);
+    const open = Boolean(anchor);
 
-                setError(error);
-            });
-    }, [])
+    const onOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchor(event.currentTarget);
+    };
+
+    const onClose = () => {
+        setAnchor(null);
+    };
+
+    const [toggled, setToggled] = React.useState(false);
+
+    const onToggle = () => {
+        setToggled(!toggled);
+    };
 
     return (
-        <div/>
+        <div className={classes.root}>
+            <CssBaseline />
+
+            <Navigation
+                anchor={anchor}
+                authenticated={false}
+                onClose={onClose}
+                onOpen={onOpen}
+                onToggle={onToggle}
+            />
+
+            <NavigationDrawer
+                challenges={[]}
+                onClose={onToggle}
+                open={toggled}
+                tasks={[]}
+            />
+
+            <Router>
+                <Registration path="sign-up"/>
+                <Session path="sign-in" />
+            </Router>
+        </div>
     );
 };
 

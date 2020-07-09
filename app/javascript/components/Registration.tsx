@@ -13,15 +13,11 @@ import {useStyles} from "./Registration.css";
 import {FormFor} from "react-rails-form-helpers";
 import Alert from "@material-ui/lab/Alert";
 
-type RegistrationProps = {
-  flash: Array<[string, string]>
-  errors: Array<string>
-}
 
-const Registration = ({flash, errors}: RegistrationProps) => {
+const Registration = () => {
   const classes = useStyles();
 
-  const messages = flash.map(([kind, message]: [string, string], index: number) => {
+  const messages = [].map(([kind, message]: [string, string], index: number) => {
     if (kind && message) {
       const kinds = {
         alert: 'warning',
@@ -57,7 +53,7 @@ const Registration = ({flash, errors}: RegistrationProps) => {
 
           {messages}
 
-          {errors.map((error: string, index: number) => {
+          {[].map((error: string, index: number) => {
             return (
                 <Alert className={classes.alert} key={index} severity="error">
                   {error}

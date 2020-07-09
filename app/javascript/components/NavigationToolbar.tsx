@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import UserMenu from "./UserMenu";
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from "@reach/router"
 
 type NavigationToolbarProps = {
     anchor: HTMLElement;
@@ -51,8 +52,8 @@ const NavigationToolbar = ({anchor, authenticated, onClose, onOpen, onToggle}: N
                         <UserMenu anchorEl={anchor} onClose={onClose}/>
                     </>
                     : <>
-                        <Button color="inherit" data-method="" href="/users/sign_in">Sign in</Button>
-                        <Button color="inherit" href="/users/sign_up">Sign up</Button>
+                        <Button color="inherit" component={Link} to="sign-in">Sign in</Button>
+                        <Button color="inherit" component={Link} to="sign-up">Sign up</Button>
                     </>
             }
         </Toolbar>

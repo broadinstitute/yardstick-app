@@ -15,14 +15,10 @@ import {useStyles} from "./Session.css";
 import {FormFor} from "react-rails-form-helpers";
 import Alert from "@material-ui/lab/Alert";
 
-type SessionProps = {
-    flash: Array<[string, string]>
-}
-
-const Session = ({flash}: SessionProps) => {
+const Session = () => {
     const classes = useStyles();
 
-    const messages = flash.map(([kind, message]: [string, string], index: number) => {
+    const messages = [].map(([kind, message]: [string, string], index: number) => {
         if (kind && message) {
             const kinds = {
                 alert: 'warning',
