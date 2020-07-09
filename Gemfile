@@ -55,3 +55,7 @@ group :development, :test do
 end
 
 gem 'devise-jwt', '~> 0.6.0'
+
+group :test do
+  gem "json_matchers"
+end

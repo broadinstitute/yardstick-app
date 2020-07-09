@@ -1,0 +1,286 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "errors": [
+        {
+          "code": "100",
+          "detail": {
+            "location": [
+              "can't be blank"
+            ],
+            "name": [
+              "can't be blank"
+            ],
+            "username": [
+              "can't be blank"
+            ],
+            "website": [
+              "can't be blank"
+            ]
+          },
+          "status": "400",
+          "title": "Bad Request"
+        }
+      ]
+    }
+  ],
+  "required": [
+    "errors"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "errors": {
+      "$id": "#/properties/errors",
+      "type": "array",
+      "title": "The errors schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        [
+          {
+            "code": "100",
+            "detail": {
+              "location": [
+                "can't be blank"
+              ],
+              "name": [
+                "can't be blank"
+              ],
+              "username": [
+                "can't be blank"
+              ],
+              "website": [
+                "can't be blank"
+              ]
+            },
+            "status": "400",
+            "title": "Bad Request"
+          }
+        ]
+      ],
+      "additionalItems": true,
+      "items": {
+        "anyOf": [
+          {
+            "$id": "#/properties/errors/items/anyOf/0",
+            "type": "object",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "code": "100",
+                "detail": {
+                  "location": [
+                    "can't be blank"
+                  ],
+                  "name": [
+                    "can't be blank"
+                  ],
+                  "username": [
+                    "can't be blank"
+                  ],
+                  "website": [
+                    "can't be blank"
+                  ]
+                },
+                "status": "400",
+                "title": "Bad Request"
+              }
+            ],
+            "required": [
+              "code",
+              "detail",
+              "status",
+              "title"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "code": {
+                "$id": "#/properties/errors/items/anyOf/0/properties/code",
+                "type": "string",
+                "title": "The code schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "100"
+                ]
+              },
+              "detail": {
+                "$id": "#/properties/errors/items/anyOf/0/properties/detail",
+                "type": "object",
+                "title": "The detail schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                  {
+                    "location": [
+                      "can't be blank"
+                    ],
+                    "name": [
+                      "can't be blank"
+                    ],
+                    "username": [
+                      "can't be blank"
+                    ],
+                    "website": [
+                      "can't be blank"
+                    ]
+                  }
+                ],
+                "required": [
+                  "location",
+                  "name",
+                  "username",
+                  "website"
+                ],
+                "additionalProperties": true,
+                "properties": {
+                  "location": {
+                    "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/location",
+                    "type": "array",
+                    "title": "The location schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                      [
+                        "can't be blank"
+                      ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                      "anyOf": [
+                        {
+                          "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/location/items/anyOf/0",
+                          "type": "string",
+                          "title": "The first anyOf schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                            "can't be blank"
+                          ]
+                        }
+                      ],
+                      "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/location/items"
+                    }
+                  },
+                  "name": {
+                    "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/name",
+                    "type": "array",
+                    "title": "The name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                      [
+                        "can't be blank"
+                      ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                      "anyOf": [
+                        {
+                          "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/name/items/anyOf/0",
+                          "type": "string",
+                          "title": "The first anyOf schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                            "can't be blank"
+                          ]
+                        }
+                      ],
+                      "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/name/items"
+                    }
+                  },
+                  "username": {
+                    "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/username",
+                    "type": "array",
+                    "title": "The username schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                      [
+                        "can't be blank"
+                      ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                      "anyOf": [
+                        {
+                          "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/username/items/anyOf/0",
+                          "type": "string",
+                          "title": "The first anyOf schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                            "can't be blank"
+                          ]
+                        }
+                      ],
+                      "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/username/items"
+                    }
+                  },
+                  "website": {
+                    "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/website",
+                    "type": "array",
+                    "title": "The website schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                      [
+                        "can't be blank"
+                      ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                      "anyOf": [
+                        {
+                          "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/website/items/anyOf/0",
+                          "type": "string",
+                          "title": "The first anyOf schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                            "can't be blank"
+                          ]
+                        }
+                      ],
+                      "$id": "#/properties/errors/items/anyOf/0/properties/detail/properties/website/items"
+                    }
+                  }
+                }
+              },
+              "status": {
+                "$id": "#/properties/errors/items/anyOf/0/properties/status",
+                "type": "string",
+                "title": "The status schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "400"
+                ]
+              },
+              "title": {
+                "$id": "#/properties/errors/items/anyOf/0/properties/title",
+                "type": "string",
+                "title": "The title schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "Bad Request"
+                ]
+              }
+            }
+          }
+        ],
+        "$id": "#/properties/errors/items"
+      }
+    }
+  }
+}
