@@ -59,3 +59,8 @@ gem 'devise-jwt', '~> 0.6.0'
 group :test do
   gem "json_matchers"
 end
+
+group :development do
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
+end

@@ -38,6 +38,10 @@ RSpec.describe "POST /users/sign_in", type: :request do
     it "returns HTTP *401 Unauthorized* error status" do
       expect(response.status).to eq 401
     end
+
+    it "returns an error message" do
+      expect(response.body).to eq "You need to sign in or sign up before continuing."
+    end
   end
 end
 
