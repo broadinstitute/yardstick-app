@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 import {Router} from "@reach/router"
 import Session from "./Session";
 import Registration from "./Registration";
+import Tasks from "./Tasks";
 
 type ApplicationProps = {}
 
@@ -42,16 +43,12 @@ const Application = ({}: ApplicationProps) => {
                 onToggle={onToggle}
             />
 
-            <NavigationDrawer
-                challenges={[]}
-                onClose={onToggle}
-                open={toggled}
-                tasks={[]}
-            />
+            <NavigationDrawer onClose={onToggle} open={toggled}/>
 
             <Router>
                 <Registration path="sign-up"/>
                 <Session path="sign-in" />
+                <Tasks path="/"/>
             </Router>
         </div>
     );

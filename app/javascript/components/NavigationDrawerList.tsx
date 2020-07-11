@@ -1,7 +1,4 @@
 import * as React from "react";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -9,14 +6,7 @@ import {useStyles} from "./NavigationDrawer.css";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import {useEffect, useState} from "react";
 
-type NavigationDrawerProps = {
-    onClose: () => void
-    open: boolean
-}
-
-const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
-    const classes = useStyles();
-
+const NavigationDrawerList = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [tasks, setTasks] = useState<Array<Task>>([]);
@@ -69,33 +59,7 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
         );
     });
 
-    return (
-        <nav className={classes.drawer}>
-            <Hidden implementation="css" smUp>
-                <Drawer
-                    ModalProps={{keepMounted: true}}
-                    classes={{paper: classes.paper}}
-                    onClose={onClose}
-                    open={open}
-                    variant="temporary"
-                >
-                    <div className={classes.toolbar} />
-
-                    <Divider />
-
-                    {t}
-                </Drawer>
-            </Hidden>
-
-            <Hidden xsDown implementation="css">
-                <Drawer classes={{paper: classes.paper}} open variant="permanent">
-                    <div className={classes.toolbar} />
-                    <Divider />
-                    {t}
-                </Drawer>
-            </Hidden>
-        </nav>
-    )
+    return {t}
 };
 
-export default NavigationDrawer;
+export default NavigationDrawerList;
