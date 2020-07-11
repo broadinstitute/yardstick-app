@@ -1,5 +1,4 @@
 import * as React from "react";
-import {useState} from "react";
 import ChallengeTable from "./ChallengeTable";
 import Grid from "@material-ui/core/Grid";
 import {useStyles} from "./Challenge.css";
@@ -11,19 +10,14 @@ import Select from "@material-ui/core/Select";
 import Partitions from "./Partitions";
 
 type ChallengeProps = {
-    challenge: { id: string; name: string; task_id: string; }
-    metrics: Array<{id: string, name: string, abbreviation: string}>
-    versions: Array<{id: string, name: string}>
+    challenge?: Challenge;
+    children: any;
 }
 
-const Challenge = ({challenge, metrics, versions}: ChallengeProps) => {
+const Challenge = ({challenge}: ChallengeProps) => {
     const classes = useStyles();
 
     const {name} = challenge;
-
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [items, setItems] = useState([]);
 
     const [version, setVersion] = React.useState("1.0.0");
 
@@ -32,8 +26,8 @@ const Challenge = ({challenge, metrics, versions}: ChallengeProps) => {
     };
 
     return (
-        <main className={classes.content}>
-            <div className={classes.toolbar} />
+        <>
+            {children}
 
             <Grid container spacing={2}>
                 <Grid item xs={9}>
@@ -55,12 +49,12 @@ const Challenge = ({challenge, metrics, versions}: ChallengeProps) => {
 
             <br/>
 
-            <ChallengeTable metrics={metrics}/>
+            <ChallengeTable/>
 
             <br/>
 
             <Partitions/>
-        </main>
+        </>
     )
 };
 

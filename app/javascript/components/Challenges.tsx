@@ -1,29 +1,15 @@
 import * as React from "react";
-import {useEffect, useState} from "react";
-import axios from "axios";
 
-type ChallengesProps = {}
+type ChallengesProps = {
+    children: any;
+}
 
-const Challenges = ({}: ChallengesProps) => {
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [tasks, setTasks] = useState<Array<Task>>([]);
-
-    useEffect(() => {
-        axios.get("/tasks.json")
-            .then(function (response) {
-                setLoading(true);
-
-                setTasks(response.data);
-            })
-            .catch(function (error) {
-                setLoading(true);
-
-                setError(error);
-            });
-    }, [])
-
-    return <div/>
+const Challenges = ({children}: ChallengesProps) => {
+    return (
+        <div id="challenges">
+            {children}
+        </div>
+    )
 };
 
 export default Challenges;

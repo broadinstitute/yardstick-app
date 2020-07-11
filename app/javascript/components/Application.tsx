@@ -7,6 +7,13 @@ import {Router} from "@reach/router"
 import Session from "./Session";
 import Registration from "./Registration";
 import Tasks from "./Tasks";
+import Submissions from "./Submissions";
+import User from "./User";
+import Task from "./Task";
+import Challenges from "./Challenges";
+import Challenge from "./Challenge";
+import Versions from "./Versions";
+import Version from "./Version";
 
 type ApplicationProps = {}
 
@@ -45,11 +52,31 @@ const Application = ({}: ApplicationProps) => {
 
             <NavigationDrawer onClose={onToggle} open={toggled}/>
 
-            <Router>
-                <Registration path="sign-up"/>
-                <Session path="sign-in" />
-                <Tasks path="/"/>
-            </Router>
+            <main className={classes.content}>
+                <div className={classes.toolbar} />
+
+                <Router>
+                    <Registration path="sign-up"/>
+
+                    <Session path="sign-in" />
+
+                    <Submissions path="submissions"/>
+
+                    <Tasks path="tasks">
+                        <Task path=":task">
+                            <Challenges path="challenges">
+                                <Challenge path=":challenge">
+                                    <Versions path="versions">
+                                        <Version path=":version"/>
+                                    </Versions>
+                                </Challenge>
+                            </Challenges>
+                        </Task>
+                    </Tasks>
+
+                    <User path="users/:username"/>
+                </Router>
+            </main>
         </div>
     );
 };

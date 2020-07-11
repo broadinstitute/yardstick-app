@@ -10,12 +10,10 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
-type ChallengeTableProps = {
-    metrics: Array<{id: string, name: string, abbreviation: string}>
-}
+const ChallengeTable = () => {
+    const metrics = [];
 
-const ChallengeTable = ({metrics}: ChallengeTableProps) => {
-    const header = metrics[0].map(({id, name, abbreviation}, index) => {
+    const header = metrics.map(({id, name, abbreviation}, index) => {
         return <TableCell align="right" key={id}>{abbreviation}</TableCell>;
     })
 
