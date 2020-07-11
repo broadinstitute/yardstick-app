@@ -12,4 +12,8 @@ class Version < ApplicationRecord
 
   validates_associated :metrics
   validates_associated :submissions
+
+  def endpoint
+    File.join(challenge.endpoint, "versions", name)
+  end
 end

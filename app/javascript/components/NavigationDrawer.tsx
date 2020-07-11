@@ -37,6 +37,8 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
             )
     }, [])
 
+    console.info(tasks);
+
     return (
         <nav className={classes.drawer}>
             <Hidden implementation="css" smUp>

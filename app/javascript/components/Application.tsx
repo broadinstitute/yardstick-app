@@ -6,13 +6,10 @@ import Navigation from "./Navigation";
 import {Router} from "@reach/router"
 import Session from "./Session";
 import Registration from "./Registration";
-import Tasks from "./Tasks";
 import Submissions from "./Submissions";
 import User from "./User";
 import Task from "./Task";
-import Challenges from "./Challenges";
 import Challenge from "./Challenge";
-import Versions from "./Versions";
 import Version from "./Version";
 
 type ApplicationProps = {}
@@ -62,17 +59,11 @@ const Application = ({}: ApplicationProps) => {
 
                     <Submissions path="submissions"/>
 
-                    <Tasks path="tasks">
-                        <Task path=":task">
-                            <Challenges path="challenges">
-                                <Challenge path=":challenge">
-                                    <Versions path="versions">
-                                        <Version path=":version"/>
-                                    </Versions>
-                                </Challenge>
-                            </Challenges>
-                        </Task>
-                    </Tasks>
+                    <Task path=":task">
+                        <Challenge path=":challenge">
+                            <Version path=":version"/>
+                        </Challenge>
+                    </Task>
 
                     <User path="users/:username"/>
                 </Router>
