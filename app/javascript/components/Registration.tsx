@@ -53,8 +53,6 @@ const Registration = () => {
         });
   }
 
-  console.log(errors);
-
   const messages = errors.map((error: Error, index: number) => {
     return Object.entries(error.detail).map(([k, v]) => {
       switch (k) {
