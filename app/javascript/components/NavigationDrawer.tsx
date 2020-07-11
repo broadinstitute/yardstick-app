@@ -4,6 +4,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import {useStyles} from "./NavigationDrawer.css";
 import NavigationDrawerList from "./NavigationDrawerList";
+import {useEffect, useState} from "react";
 
 type NavigationDrawerProps = {
     onClose: () => void
@@ -12,6 +13,29 @@ type NavigationDrawerProps = {
 
 const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
     const classes = useStyles();
+
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [tasks, setTasks] = useState<Array<Task>>([]);
+
+    useEffect(() => {
+        fetch("/tasks")
+            .then(response => {
+                return response.json()
+            })
+            .then(
+                response => {
+                    setLoading(true);
+
+                    setTasks(response);
+                },
+                error => {
+                    setLoading(true);
+
+                    setError(error);
+                }
+            )
+    }, [])
 
     return (
         <nav className={classes.drawer}>
@@ -25,7 +49,11 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
                 >
                     <div className={classes.toolbar} />
                     <Divider />
-                    <NavigationDrawerList/>
+                    {
+                        tasks.map((task) => {
+                            return <NavigationDrawerList task={task}/>
+                        })
+                    }
                 </Drawer>
             </Hidden>
 
@@ -37,7 +65,11 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
                 >
                     <div className={classes.toolbar} />
                     <Divider />
-                    <NavigationDrawerList/>
+                    {
+                        tasks.map((task) => {
+                            return <NavigationDrawerList task={task}/>
+                        })
+                    }
                 </Drawer>
             </Hidden>
         </nav>
