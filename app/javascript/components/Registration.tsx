@@ -9,51 +9,78 @@ import Alert from "@material-ui/lab/Alert";
 import Copyright from "./Copyright";
 import RegistrationForm from "./RegistrationForm";
 import {useState} from "react";
-import axios from "axios";
 
+type Error =  {
+  code: string
+  detail: {
+    email?: Array<string>
+    username?: Array<string>
+    password?: Array<string>
+  }
+  status: string
+  title: string
+}
 
 const Registration = () => {
   const classes = useStyles();
 
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState<any>({});
+  const [errors, setErrors] = useState<Array<Error>>([]);
+  const [user, setUser] = useState<Array<Task>>([]);
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(event);
-    // axios.post("/users", { user: user})
-    //     .then(function (response) {
-    //       setLoading(true);
-    //
-    //       setUser(response.data);
-    //     })
-    //     .catch(function (error) {
-    //       setLoading(true);
-    //
-    //       setError(error);
-    //     });
+  const onSubmit = (values, actions) => {
+    const init = {
+      body: JSON.stringify({ user: values}),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+    };
+
+    fetch("/users", init)
+        .then(response => {
+          return response.json();
+        })
+        .then(response => {
+          if ("errors" in response) {
+            setErrors(response.errors);
+          }
+
+          setUser(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
   }
 
-  const messages = [].map(([kind, message]: [string, string], index: number) => {
-    if (kind && message) {
-      const kinds = {
-        alert: 'warning',
-        error: 'error',
-        notice: 'info',
-        success: 'success'
-      };
+  console.log(errors);
 
-      const severity = kinds[kind];
+  const messages = errors.map((error: Error, index: number) => {
+    return Object.entries(error.detail).map(([k, v]) => {
+      switch (k) {
+        case "email":
+          k = "E-mail address";
+
+          break;
+        case "password":
+          k = "Password";
+          
+          break;
+
+        case "username":
+          k = "Username";
+
+          break;
+      }
+
+      const message = `${k} ${v[0]}.`;
 
       return (
-          <Alert className={classes.alert} key={index} severity={severity}>
-            {message}
-          </Alert>
+        <Alert className={classes.alert} key={index} severity="error">
+          {message}
+        </Alert>
       );
-    } else {
-      return;
-    }
+    });
   })
 
   return (
@@ -69,17 +96,9 @@ const Registration = () => {
             Sign up for Yardstick
           </Typography>
 
-          <br/>
-
           {messages}
 
-          {[].map((error: string, index: number) => {
-            return (
-                <Alert className={classes.alert} key={index} severity="error">
-                  {error}
-                </Alert>
-            );
-          })}
+          <div className={classes.messages}/>
 
           <RegistrationForm onSubmit={onSubmit}/>
         </div>

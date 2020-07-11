@@ -5,6 +5,9 @@ export const useStyles = makeStyles((theme) => ({
         margin: '16px 0 0 0',
         width: '100%',
     },
+    messages: {
+        margin: '0 0 16px 0',
+    },
     paper: {
         marginTop: theme.spacing(8),
         display: 'flex',
@@ -22,4 +25,5 @@ export const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+
 }));
