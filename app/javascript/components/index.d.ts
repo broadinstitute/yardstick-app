@@ -1,5 +1,6 @@
 type Challenge = {
     description: string;
+    id: string;
     name: string;
     slug: string;
     task: Task;

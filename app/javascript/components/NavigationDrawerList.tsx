@@ -2,9 +2,9 @@ import * as React from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import {useStyles} from "./NavigationDrawer.css";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import {useEffect, useState} from "react";
+import NavigationDrawerListItem from "./NavigationDrawerListItem";
 
 const NavigationDrawerList = () => {
     const [error, setError] = useState(null);
@@ -30,36 +30,29 @@ const NavigationDrawerList = () => {
             )
     }, [])
 
-    const t = tasks.map((task) => {
-        const subheader = (
-            <ListSubheader>
-                {task.name}
-            </ListSubheader>
-        );
+    return (
+        <>
+            {
+                tasks.map((task) => {
+                    const subheader = (
+                        <ListSubheader>
+                            {task.name}
+                        </ListSubheader>
+                    );
 
-        return (
-            <List key={task.id} subheader={subheader}>
-                {
-                    task.challenges.map((challenge) => {
-                        return (
-                            <ListItem
-                                button
-                                component="a"
-                                href="/"
-                                key={`${task.id}-${challenge.slug}`}
-                            >
-                                <ListItemText
-                                    primary={challenge.name}
-                                />
-                            </ListItem>
-                        );
-                    })
-                }
-            </List>
-        );
-    });
-
-    return {t}
+                    return (
+                        <List key={task.id} subheader={subheader}>
+                            {
+                                task.challenges.map((challenge) => {
+                                    return <NavigationDrawerListItem challenge={challenge}/>
+                                })
+                            }
+                        </List>
+                    );
+                })
+            }
+        </>
+    )
 };
 
 export default NavigationDrawerList;

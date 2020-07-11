@@ -1,4 +1,5 @@
 import * as React from "react";
+import {useState} from "react";
 import ChallengeTable from "./ChallengeTable";
 import Grid from "@material-ui/core/Grid";
 import {useStyles} from "./Challenge.css";
@@ -8,8 +9,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Partitions from "./Partitions";
-import {useEffect, useState} from "react";
-import axios from "axios";
 
 type ChallengeProps = {
     challenge: { id: string; name: string; task_id: string; }
