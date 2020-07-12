@@ -49,7 +49,7 @@ const Challenge = ({challenge, children}: ChallengeProps) => {
 
             <br/>
 
-            <ChallengeTable/>
+            <ChallengeTable version={null}/>
 
             <br/>
 

@@ -54,5 +54,5 @@ type Version = {
     trainingPartition: Partition;
     validationPartition: Partition;
     testPartition: Partition;
-    metrics: Array<string>
+    metrics: Array<Metric>
 };
