@@ -5,10 +5,11 @@ class Challenge < ApplicationRecord
 
   validates :description, presence: true
   validates :name,        presence: true, uniqueness: { scope: :task_id }
+  validates :slug,        presence: true, uniqueness: { scope: :task_id }
 
   validates_associated :versions
 
   def endpoint
-    File.join(task.endpoint, "challenges", name.parameterize)
+    File.join(task.endpoint, "challenges", slug)
   end
 end

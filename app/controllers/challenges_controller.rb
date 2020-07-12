@@ -6,7 +6,7 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    @challenge = @task.challenges.find(params[:id])
+    @challenge = @task.challenges.find_by(slug: params[:id])
   end
 
   private
@@ -16,6 +16,6 @@ class ChallengesController < ApplicationController
   end
 
   def set_task
-    @task = Task.find(params[:task_id])
+    @task = Task.find_by(slug: params[:task_id])
   end
 end

@@ -3,10 +3,11 @@ class Task < ApplicationRecord
 
   validates :description, presence: true
   validates :name,        presence: true, uniqueness: true
+  validates :slug,        presence: true, uniqueness: true
 
   validates_associated :challenges
 
   def endpoint
-    File.join("/tasks", name.parameterize)
+    File.join("/", ["tasks", slug])
   end
 end
