@@ -1,7 +1,6 @@
 json.description      @challenge.description
 json.id               @challenge.id
 json.name             @challenge.name
-json.slug             @challenge.slug
 
 json.versions @challenge.versions do |version|
   json.description    version.description
