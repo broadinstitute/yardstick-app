@@ -1,7 +1,6 @@
 import * as React from "react";
 import ChallengeTable from "./ChallengeTable";
 import Grid from "@material-ui/core/Grid";
-import {useStyles} from "./Challenge.css";
 import {Typography} from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -22,8 +21,6 @@ const Challenge = ({challenge, children}: ChallengeProps) => {
     const [name, setName] = useState<string>("1.0.0");
 
     const parameters = useParams();
-
-    const classes = useStyles();
 
     const onChange = (event: React.ChangeEvent<{ value: unknown }>) => {
         setName(event.target.value as string);
@@ -60,7 +57,7 @@ const Challenge = ({challenge, children}: ChallengeProps) => {
             <Grid container spacing={2}>
                 <Grid item xs={9}>
                     <Typography variant="h5" gutterBottom>
-                        {challenge.name}
+                        {challenge}
                     </Typography>
                 </Grid>
 

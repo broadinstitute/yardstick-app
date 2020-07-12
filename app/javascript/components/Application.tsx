@@ -14,6 +14,7 @@ import Challenges from "./Challenges";
 import Challenge from "./Challenge";
 import Versions from "./Versions";
 import Version from "./Version";
+import {Grid} from "@material-ui/core";
 
 type ApplicationProps = {}
 
@@ -55,27 +56,37 @@ const Application = ({}: ApplicationProps) => {
             <main className={classes.content}>
                 <div className={classes.toolbar} />
 
-                <Router>
-                    <Registration path="sign-up"/>
+                <br/>
 
-                    <Session path="sign-in" />
+                <br/>
 
-                    <Submissions path="submissions"/>
+                <Grid container spacing={2}>
+                    <Grid item xs={1}/>
 
-                    <Tasks path="tasks">
-                        <Task path=":task">
-                            <Challenges path="challenges">
-                                <Challenge path=":challenge">
-                                    <Versions path="versions">
-                                        <Version path=":version"/>
-                                    </Versions>
-                                </Challenge>
-                            </Challenges>
-                        </Task>
-                    </Tasks>
+                    <Grid item xs={10}>
+                        <Router>
+                            <Registration path="sign-up"/>
 
-                    <User path="users/:username"/>
-                </Router>
+                            <Session path="sign-in" />
+
+                            <Submissions path="submissions"/>
+
+                            <Tasks path="tasks">
+                                <Task path=":task">
+                                    <Challenges path="challenges">
+                                        <Challenge path=":challenge">
+                                            <Versions path="versions">
+                                                <Version path=":version"/>
+                                            </Versions>
+                                        </Challenge>
+                                    </Challenges>
+                                </Task>
+                            </Tasks>
+
+                            <User path="users/:username"/>
+                        </Router>
+                    </Grid>
+                </Grid>
             </main>
         </div>
     );

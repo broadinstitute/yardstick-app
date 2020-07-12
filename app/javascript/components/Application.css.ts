@@ -31,11 +31,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         },
         content: {
             flexGrow: 1,
-            padding: theme.spacing(3),
-            [theme.breakpoints.up('sm')]: {
-                marginLeft: drawerWidth,
-                width: `calc(100% - ${drawerWidth}px)`,
-            },
         },
     }),
 );
