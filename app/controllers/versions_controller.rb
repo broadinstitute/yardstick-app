@@ -16,8 +16,8 @@ class VersionsController < ApplicationController
   end
 
   def set_challenge
-    @task = Task.find_by(slug: params[:task_id])
+    task = Task.find_by(slug: params[:task_id])
 
-    @challenge = @task.challenges.find_by(slug: params[:challenge_id])
+    @challenge = task.challenges.find_by(slug: params[:challenge_id])
   end
 end
