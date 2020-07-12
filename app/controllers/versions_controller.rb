@@ -2,11 +2,11 @@ class VersionsController < ApplicationController
   before_action :set_challenge
 
   def index
-    @challenges = @challenge.versions
+    @versions = @challenge.versions
   end
 
   def show
-    @challenge = @challenge.versions.find_by(slug: params[:id])
+    @version = @challenge.versions.find_by(name: params[:id])
   end
 
   private
@@ -16,6 +16,8 @@ class VersionsController < ApplicationController
   end
 
   def set_challenge
-    @challenge = Task.find_by(slug: params[:task_id]).challenges.find_by(slug: params[:challenge_id])
+    @task = Task.find_by(slug: params[:task_id])
+
+    @challenge = @task.challenges.find_by(slug: params[:challenge_id])
   end
 end
