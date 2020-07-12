@@ -55,27 +55,27 @@ const Application = ({}: ApplicationProps) => {
             <main className={classes.content}>
                 <div className={classes.toolbar} />
 
-                {/*<Router>*/}
-                {/*    <Registration path="sign-up"/>*/}
+                <Router>
+                    <Registration path="sign-up"/>
 
-                {/*    <Session path="sign-in" />*/}
+                    <Session path="sign-in" />
 
-                {/*    <Submissions path="submissions"/>*/}
+                    <Submissions path="submissions"/>
 
-                {/*    <Tasks path="tasks">*/}
-                {/*        <Task path=":task">*/}
-                {/*            <Challenges path="challenges">*/}
-                {/*                <Challenge path=":challenge">*/}
-                {/*                    <Versions path="versions">*/}
-                {/*                        <Version path=":version"/>*/}
-                {/*                    </Versions>*/}
-                {/*                </Challenge>*/}
-                {/*            </Challenges>*/}
-                {/*        </Task>*/}
-                {/*    </Tasks>*/}
+                    <Tasks path="tasks">
+                        <Task path=":task">
+                            <Challenges path="challenges">
+                                <Challenge path=":challenge">
+                                    <Versions path="versions">
+                                        <Version path=":version"/>
+                                    </Versions>
+                                </Challenge>
+                            </Challenges>
+                        </Task>
+                    </Tasks>
 
-                {/*    <User path="users/:username"/>*/}
-                {/*</Router>*/}
+                    <User path="users/:username"/>
+                </Router>
             </main>
         </div>
     );
