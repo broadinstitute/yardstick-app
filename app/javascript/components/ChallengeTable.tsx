@@ -9,12 +9,15 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import ChallengeTableHead from "./ChallengeTableHead";
+import {useStyles} from "./ChallengeTable.css";
 
 type ChallengeTableProps = {
     version?: Version;
 }
 
 const ChallengeTable = ({version}: ChallengeTableProps) => {
+    const classes = useStyles();
+
     return (
         <Grid item xs={12}>
             <TableContainer component={Paper}>
@@ -28,19 +31,108 @@ const ChallengeTable = ({version}: ChallengeTableProps) => {
                                     <KeyboardArrowDownIcon/>
                                 </IconButton>
                             </TableCell>
-                            <TableCell>example</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
-                            <TableCell align="right">0.0</TableCell>
+                            <TableCell className={classes.root}>example</TableCell>
+                            <TableCell className={classes.root}>@0x00B1</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                        </TableRow>
+
+                        <TableRow key="1">
+                            <TableCell component="th" scope="row">
+                                <IconButton size="small">
+                                    <KeyboardArrowDownIcon/>
+                                </IconButton>
+                            </TableCell>
+                            <TableCell className={classes.root}>example</TableCell>
+                            <TableCell className={classes.root}>@0x00B1</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                        </TableRow>
+
+                        <TableRow key="2">
+                            <TableCell component="th" scope="row">
+                                <IconButton size="small">
+                                    <KeyboardArrowDownIcon/>
+                                </IconButton>
+                            </TableCell>
+                            <TableCell className={classes.root}>example</TableCell>
+                            <TableCell className={classes.root}>@0x00B1</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                        </TableRow>
+
+                        <TableRow key="3">
+                            <TableCell component="th" scope="row">
+                                <IconButton size="small">
+                                    <KeyboardArrowDownIcon/>
+                                </IconButton>
+                            </TableCell>
+                            <TableCell className={classes.root}>example</TableCell>
+                            <TableCell className={classes.root}>@0x00B1</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                        </TableRow>
+
+                        <TableRow key="4">
+                            <TableCell component="th" scope="row">
+                                <IconButton size="small">
+                                    <KeyboardArrowDownIcon/>
+                                </IconButton>
+                            </TableCell>
+                            <TableCell className={classes.root}>example</TableCell>
+                            <TableCell className={classes.root}>@0x00B1</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
+                            <TableCell align="right" className={classes.root}>0.0</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

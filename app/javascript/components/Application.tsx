@@ -14,7 +14,8 @@ import Challenges from "./Challenges";
 import Challenge from "./Challenge";
 import Versions from "./Versions";
 import Version from "./Version";
-import {Grid} from "@material-ui/core";
+import {Grid, ThemeProvider} from "@material-ui/core";
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
 type ApplicationProps = {}
 
@@ -39,56 +40,62 @@ const Application = ({}: ApplicationProps) => {
         setToggled(!toggled);
     };
 
+    const options = {};
+
+    const theme = createMuiTheme(options);
+
     return (
-        <div className={classes.root}>
-            <CssBaseline />
+        <ThemeProvider theme={theme}>
+            <div className={classes.root}>
+                <CssBaseline />
 
-            <Navigation
-                anchor={anchor}
-                authenticated={false}
-                onClose={onClose}
-                onOpen={onOpen}
-                onToggle={onToggle}
-            />
+                <Navigation
+                    anchor={anchor}
+                    authenticated={false}
+                    onClose={onClose}
+                    onOpen={onOpen}
+                    onToggle={onToggle}
+                />
 
-            <NavigationDrawer onClose={onToggle} open={toggled}/>
+                <NavigationDrawer onClose={onToggle} open={toggled}/>
 
-            <main className={classes.content}>
-                <div className={classes.toolbar} />
+                <main className={classes.content}>
+                    <div className={classes.toolbar} />
 
-                <br/>
+                    <br/>
 
-                <br/>
+                    <br/>
 
-                <Grid container spacing={2}>
-                    <Grid item xs={1}/>
+                    <Grid container spacing={2}>
+                        <Grid item xs={1}/>
 
-                    <Grid item xs={10}>
-                        <Router>
-                            <Registration path="sign-up"/>
+                        <Grid item xs={10}>
+                            <Router>
+                                <Registration path="sign-up"/>
 
-                            <Session path="sign-in" />
+                                <Session path="sign-in" />
 
-                            <Submissions path="submissions"/>
+                                <Submissions path="submissions"/>
 
-                            <Tasks path="tasks">
-                                <Task path=":task">
-                                    <Challenges path="challenges">
-                                        <Challenge path=":challenge">
-                                            <Versions path="versions">
-                                                <Version path=":version"/>
-                                            </Versions>
-                                        </Challenge>
-                                    </Challenges>
-                                </Task>
-                            </Tasks>
+                                <Tasks path="tasks">
+                                    <Task path=":task">
+                                        <Challenges path="challenges">
+                                            <Challenge path=":challenge">
+                                                <Versions path="versions">
+                                                    <Version path=":version"/>
+                                                </Versions>
+                                            </Challenge>
+                                        </Challenges>
+                                    </Task>
+                                </Tasks>
 
-                            <User path="users/:username"/>
-                        </Router>
+                                <User path="users/:username"/>
+                            </Router>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </main>
-        </div>
+                </main>
+            </div>
+        </ThemeProvider>
     );
 };
 
