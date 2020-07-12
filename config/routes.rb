@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   }
 
   resources :tasks do
-    resources :challenges
+    resources :challenges do
+      resources :versions
+    end
   end
 
-  resources :users do
-    resources :submissions
-  end
+  resources :submissions
+  resources :users
 
   root "home#index"
 end
