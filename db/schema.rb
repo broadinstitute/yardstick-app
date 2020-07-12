@@ -123,10 +123,12 @@ ActiveRecord::Schema.define(version: 2020_07_09_171042) do
     t.uuid "training_partition_id"
     t.uuid "validation_partition_id"
     t.string "name", default: "", null: false
+    t.string "slug", default: "", null: false
     t.text "description", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["challenge_id"], name: "index_versions_on_challenge_id"
+    t.index ["slug"], name: "index_versions_on_slug"
     t.index ["test_partition_id"], name: "index_versions_on_test_partition_id"
     t.index ["training_partition_id"], name: "index_versions_on_training_partition_id"
     t.index ["validation_partition_id"], name: "index_versions_on_validation_partition_id"

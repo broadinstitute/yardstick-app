@@ -22,6 +22,7 @@ challenge = task.challenges.create!(
 challenge.versions.create!(
     description:          "foo",
     name:                 "1.0.0",
+    slug:                 "1-0-0",
     test_partition: Partition.create!(
         checksum:         "d131dd02c5e6eec4",
         description:      "foo",
@@ -54,6 +55,7 @@ challenge = task.challenges.create!(
 version = challenge.versions.create!(
     description:          "foo",
     name:                 "1.0.0",
+    slug:                 "1-0-0",
     test_partition: Partition.create!(
         checksum:         "d131dd02c5e6eec4",
         description:      "foo",
@@ -175,6 +177,7 @@ challenge = task.challenges.create!(
 challenge.versions.create!(
     description:          "foo",
     name:                 "1.0.0",
+    slug:                 "1-0-0",
     test_partition: Partition.create!(
         checksum:         "d131dd02c5e6eec4",
         description:      "foo",

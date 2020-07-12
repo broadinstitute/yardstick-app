@@ -8,6 +8,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Partitions from "./Partitions";
+import {useEffect, useState} from "react";
+import { useParams } from "@reach/router"
 
 type ChallengeProps = {
     challenge?: Challenge;
@@ -15,15 +17,41 @@ type ChallengeProps = {
 }
 
 const Challenge = ({challenge, children}: ChallengeProps) => {
+    const [error, setError] = useState(null);
+    const [version, setVersion] = useState<Version>();
+    const [name, setName] = useState<string>("1.0.0");
+
+    const parameters = useParams();
+
     const classes = useStyles();
 
-    const {name} = challenge;
-
-    const [version, setVersion] = React.useState("1.0.0");
-
     const onChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-        setVersion(event.target.value as string);
+        setName(event.target.value as string);
     };
+
+    const init = {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: "GET"
+    }
+
+    useEffect(() => {
+        const endpoint = `/tasks/${parameters.task}/challenges/${parameters.challenge}/versions/1-0-0`;
+
+        fetch(endpoint, init)
+            .then(response => {
+                return response.json();
+            })
+            .then(
+                (result) => {
+                    setVersion(result);
+                },
+                (error) => {
+                    setError(error);
+                }
+            )
+    }, [])
 
     return (
         <>
@@ -40,7 +68,7 @@ const Challenge = ({challenge, children}: ChallengeProps) => {
                     <FormControl fullWidth variant="outlined">
                         <InputLabel id="version-label">Version</InputLabel>
 
-                        <Select id="version-select" label="Version" labelId="version-label" onChange={onChange} value={version}>
+                        <Select id="version-select" label="Version" labelId="version-label" onChange={onChange} value={name}>
                             <MenuItem value={"1.0.0"}>1.0.0</MenuItem>
                         </Select>
                     </FormControl>
@@ -49,7 +77,7 @@ const Challenge = ({challenge, children}: ChallengeProps) => {
 
             <br/>
 
-            <ChallengeTable version={null}/>
+            <ChallengeTable version={version}/>
 
             <br/>
 

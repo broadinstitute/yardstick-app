@@ -6,7 +6,7 @@ class VersionsController < ApplicationController
   end
 
   def show
-    @version = @challenge.versions.find_by(name: params[:id])
+    @version = @challenge.versions.find_by(slug: params[:id])
   end
 
   private
