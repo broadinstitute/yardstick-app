@@ -17,8 +17,8 @@ const NavigationDrawerList = ({task}: NavigationDrawerListProps) => {
     return (
         <List key={task.id} subheader={subheader}>
             {
-                task.challenges.map((challenge) => {
-                    return <NavigationDrawerListItem challenge={challenge}/>
+                task.challenges.map((challenge, index) => {
+                    return <NavigationDrawerListItem challenge={challenge} key={index}/>
                 })
             }
         </List>

@@ -14,7 +14,7 @@ type ChallengeProps = {
     children: any;
 }
 
-const Challenge = ({challenge}: ChallengeProps) => {
+const Challenge = ({challenge, children}: ChallengeProps) => {
     const classes = useStyles();
 
     const {name} = challenge;

@@ -37,8 +37,6 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
             )
     }, [])
 
-    console.info(tasks);
-
     return (
         <nav className={classes.drawer}>
             <Hidden implementation="css" smUp>
@@ -52,14 +50,14 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
                     <div className={classes.toolbar} />
                     <Divider />
                     {
-                        tasks.map((task) => {
-                            return <NavigationDrawerList task={task}/>
+                        tasks.map((task, index) => {
+                            return <NavigationDrawerList key={index} task={task}/>
                         })
                     }
                 </Drawer>
             </Hidden>
 
-            <Hidden xsDown implementation="css">
+            <Hidden implementation="css" xsDown>
                 <Drawer
                     classes={{paper: classes.paper}}
                     open
@@ -68,8 +66,8 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
                     <div className={classes.toolbar} />
                     <Divider />
                     {
-                        tasks.map((task) => {
-                            return <NavigationDrawerList task={task}/>
+                        tasks.map((task, index) => {
+                            return <NavigationDrawerList key={index} task={task}/>
                         })
                     }
                 </Drawer>
