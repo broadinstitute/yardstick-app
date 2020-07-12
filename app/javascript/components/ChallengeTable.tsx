@@ -14,7 +14,11 @@ const ChallengeTable = () => {
     const metrics = [];
 
     const header = metrics.map(({id, name, abbreviation}, index) => {
-        return <TableCell align="right" key={id}>{abbreviation}</TableCell>;
+        return (
+            <TableCell align="right" key={index}>
+                {abbreviation}
+            </TableCell>
+        );
     })
 
     return (
@@ -30,7 +34,7 @@ const ChallengeTable = () => {
                     </TableHead>
 
                     <TableBody>
-                        <TableRow key="">
+                        <TableRow key="0">
                             <TableCell component="th" scope="row">
                                 <IconButton size="small">
                                     <KeyboardArrowDownIcon/>
@@ -51,7 +55,7 @@ const ChallengeTable = () => {
                             <TableCell align="right">0.0</TableCell>
                         </TableRow>
 
-                        <TableRow key="">
+                        <TableRow key="1">
                             <TableCell component="th" scope="row">
                                 <IconButton size="small">
                                     <KeyboardArrowDownIcon/>
@@ -72,7 +76,7 @@ const ChallengeTable = () => {
                             <TableCell align="right">0.0</TableCell>
                         </TableRow>
 
-                        <TableRow key="">
+                        <TableRow key="2">
                             <TableCell component="th" scope="row">
                                 <IconButton size="small">
                                     <KeyboardArrowDownIcon/>
@@ -93,7 +97,7 @@ const ChallengeTable = () => {
                             <TableCell align="right">0.0</TableCell>
                         </TableRow>
 
-                        <TableRow key="">
+                        <TableRow key="3">
                             <TableCell component="th" scope="row">
                                 <IconButton size="small">
                                     <KeyboardArrowDownIcon/>
@@ -114,7 +118,7 @@ const ChallengeTable = () => {
                             <TableCell align="right">0.0</TableCell>
                         </TableRow>
 
-                        <TableRow key="">
+                        <TableRow key="4">
                             <TableCell component="th" scope="row">
                                 <IconButton size="small">
                                     <KeyboardArrowDownIcon/>

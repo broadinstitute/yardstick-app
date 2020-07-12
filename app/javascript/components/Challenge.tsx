@@ -32,7 +32,7 @@ const Challenge = ({challenge, children}: ChallengeProps) => {
             <Grid container spacing={2}>
                 <Grid item xs={9}>
                     <Typography variant="h5" gutterBottom>
-                        {name}
+                        {challenge.name}
                     </Typography>
                 </Grid>
 
