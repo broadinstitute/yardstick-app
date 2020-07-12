@@ -9,7 +9,7 @@ class Version < ApplicationRecord
 
   validates :description, presence: true
   validates :name,        presence: true, uniqueness: { scope: :challenge_id }
-  validates :slug,        presence: true, uniqueness: true
+  validates :slug,        presence: true
 
   validates_associated :metrics
   validates_associated :submissions

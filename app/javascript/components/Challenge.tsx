@@ -9,6 +9,8 @@ import Select from "@material-ui/core/Select";
 import Partitions from "./Partitions";
 import {useEffect, useState} from "react";
 import { useParams } from "@reach/router"
+import Button from "@material-ui/core/Button";
+import SubmissionDialog from "./SubmissionDialog";
 
 type ChallengeProps = {
     challenge?: Challenge;
@@ -16,9 +18,19 @@ type ChallengeProps = {
 }
 
 const Challenge = ({challenge, children}: ChallengeProps) => {
+    const [open, setOpen] = useState(false);
+
     const [error, setError] = useState(null);
     const [version, setVersion] = useState<Version>();
     const [name, setName] = useState<string>("1.0.0");
+
+    const onOpen = () => {
+        setOpen(true);
+    };
+
+    const onClose = () => {
+        setOpen(false);
+    };
 
     const parameters = useParams();
 
@@ -75,6 +87,16 @@ const Challenge = ({challenge, children}: ChallengeProps) => {
             <br/>
 
             <ChallengeTable version={version}/>
+
+            <br/>
+
+            <Button variant="contained" color="primary" disableElevation onClick={onOpen}>
+                Submit new scores
+            </Button>
+
+            <SubmissionDialog onClose={onClose} open={open}/>
+
+            <br/>
 
             <br/>
 
