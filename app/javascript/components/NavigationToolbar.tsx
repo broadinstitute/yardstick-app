@@ -10,7 +10,7 @@ import UserMenu from "./UserMenu";
 import { useStyles } from "./NavigationToolbar.css";
 
 type NavigationToolbarProps = {
-    anchor: HTMLElement;
+    anchorEl: null | HTMLElement;
     authenticated: boolean;
     onClose: () => void;
     onOpen: (event: React.MouseEvent<HTMLElement>) => void;
@@ -18,7 +18,7 @@ type NavigationToolbarProps = {
 };
 
 const NavigationToolbar = ({
-    anchor,
+    anchorEl,
     authenticated,
     onClose,
     onOpen,
@@ -54,7 +54,7 @@ const NavigationToolbar = ({
                         <AccountCircle />
                     </IconButton>
 
-                    <UserMenu anchorEl={anchor} onClose={onClose} />
+                    <UserMenu anchorEl={anchorEl} onClose={onClose} />
                 </>
             ) : (
                 <div>

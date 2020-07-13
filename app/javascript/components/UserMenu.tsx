@@ -3,7 +3,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
 type UserMenuProps = {
-    anchorEl: HTMLElement;
+    anchorEl: null | HTMLElement;
     onClose: () => void;
 };
 

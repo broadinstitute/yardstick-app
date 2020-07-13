@@ -4,7 +4,7 @@ import { useStyles } from "./Navigation.css";
 import NavigationToolbar from "./NavigationToolbar";
 
 type NavigationProps = {
-    anchor: HTMLElement;
+    anchorEl: null | HTMLElement;
     authenticated: boolean;
     onClose: () => void;
     onOpen: (event: React.MouseEvent<HTMLElement>) => void;
@@ -12,7 +12,7 @@ type NavigationProps = {
 };
 
 const Navigation = ({
-    anchor,
+    anchorEl,
     authenticated,
     onClose,
     onOpen,
@@ -23,7 +23,7 @@ const Navigation = ({
     return (
         <AppBar position="fixed" className={classes.appBar}>
             <NavigationToolbar
-                anchor={anchor}
+                anchor={anchorEl}
                 authenticated={authenticated}
                 onClose={onClose}
                 onOpen={onOpen}
