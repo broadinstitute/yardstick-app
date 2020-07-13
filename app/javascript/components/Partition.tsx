@@ -4,9 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Typography } from "@material-ui/core";
 
-type PartitionProps = {};
-
-const Partition = ({}: PartitionProps): JSX.Element => (
+const Partition = (): JSX.Element => (
     <Grid item xs={4}>
         <Card>
             <CardContent>

@@ -7,20 +7,11 @@ type NavigationDrawerListItemProps = {
 };
 
 const NavigationDrawerListItem = ({
-                                      challenge,
-                                  }: NavigationDrawerListItemProps): JSX.Element => {
-    const ListItemLink = React.useMemo(
-        () =>
-            React.forwardRef((props, ref) => (
-                to = {challenge.endpoint}
-    {...
-        props
-    }
-    />), [challenge.endpoint]);
-
+    challenge,
+}: NavigationDrawerListItemProps): JSX.Element => {
     return (
-        <ListItem button component={ListItemLink}>
-            <ListItemText primary={challenge.name}/>
+        <ListItem button>
+            <ListItemText primary={challenge.name} />
         </ListItem>
     );
 };

@@ -1,11 +1,5 @@
 import * as React from "react";
 
-type VersionsProps = {
-    children: any;
-};
-
-const Versions = ({ children }: VersionsProps): JSX.Element => (
-    <div id="versions">{children}</div>
-);
+const Versions = (): JSX.Element => <div />;
 
 export default Versions;

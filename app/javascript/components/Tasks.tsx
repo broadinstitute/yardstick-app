@@ -1,11 +1,5 @@
 import * as React from "react";
 
-type TasksProps = {
-    children: any;
-};
-
-const Tasks = ({ children }: TasksProps): JSX.Element => (
-    <div id="tasks">{children}</div>
-);
+const Tasks = (): JSX.Element => <div />;
 
 export default Tasks;

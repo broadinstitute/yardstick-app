@@ -14,10 +14,9 @@ import SubmissionDialog from "./SubmissionDialog";
 
 type ChallengeProps = {
     challenge?: Challenge;
-    children: any;
 };
 
-const Challenge = ({ challenge, children }: ChallengeProps): JSX.Element => {
+const Challenge = ({ challenge }: ChallengeProps): JSX.Element => {
     const [open, setOpen] = useState(false);
 
     const [error, setError] = useState(null);
@@ -61,9 +60,7 @@ const Challenge = ({ challenge, children }: ChallengeProps): JSX.Element => {
     }, []);
 
     return (
-        <>
-            {children}
-
+        <div>
             <Grid container spacing={2}>
                 <Grid item xs={9}>
                     <Typography variant="h5" gutterBottom>
@@ -110,7 +107,7 @@ const Challenge = ({ challenge, children }: ChallengeProps): JSX.Element => {
             <br />
 
             <Partitions />
-        </>
+        </div>
     );
 };
 

@@ -1,7 +1,6 @@
 import * as React from "react";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import { useStyles } from "./UserMenu.css";
 
 type UserMenuProps = {
     anchorEl: HTMLElement;
@@ -9,8 +8,6 @@ type UserMenuProps = {
 };
 
 const UserMenu = ({ anchorEl, onClose }: UserMenuProps): JSX.Element => {
-    const classes = useStyles();
-
     const open = Boolean(anchorEl);
 
     return (
