@@ -1,16 +1,27 @@
 import * as React from "react";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
+import { TextField } from "@material-ui/core";
 
-const SubmissionDialogContent = () => {
-    return (
-        <DialogContent>
-            <DialogContentText>
-                Let Google help apps determine location. This means sending anonymous location data to
-                Google, even when no apps are running.
-            </DialogContentText>
-        </DialogContent>
-    )
-};
+const SubmissionDialogContent = () => (
+    <DialogContent>
+        <TextField
+            autoFocus
+            fullWidth
+            id="name"
+            label="Name"
+            type="text"
+            variant="outlined"
+        />
+
+        <TextField
+            label="Description"
+            fullWidth
+            multiline
+            rows={8}
+            defaultValue=""
+            variant="outlined"
+        />
+    </DialogContent>
+);
 
 export default SubmissionDialogContent;

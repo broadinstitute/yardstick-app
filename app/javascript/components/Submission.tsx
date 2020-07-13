@@ -1,9 +1,7 @@
 import * as React from "react";
 
-type SubmissionProps = {}
+type SubmissionProps = {};
 
-const Submission = ({}: SubmissionProps) => {
-    return <div/>
-};
+const Submission = ({}: SubmissionProps) => <div />;
 
 export default Submission;

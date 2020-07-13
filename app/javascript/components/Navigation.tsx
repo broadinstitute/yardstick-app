@@ -1,17 +1,23 @@
 import * as React from "react";
-import {useStyles} from "./Navigation.css";
-import {AppBar} from "@material-ui/core";
+import { AppBar } from "@material-ui/core";
+import { useStyles } from "./Navigation.css";
 import NavigationToolbar from "./NavigationToolbar";
 
 type NavigationProps = {
-    anchor: HTMLElement
-    authenticated: boolean
-    onClose: () => void
-    onOpen: (event: React.MouseEvent<HTMLElement>) => void
-    onToggle: () => void
-}
+    anchor: HTMLElement;
+    authenticated: boolean;
+    onClose: () => void;
+    onOpen: (event: React.MouseEvent<HTMLElement>) => void;
+    onToggle: () => void;
+};
 
-const Navigation = ({anchor, authenticated, onClose, onOpen, onToggle}: NavigationProps) => {
+const Navigation = ({
+    anchor,
+    authenticated,
+    onClose,
+    onOpen,
+    onToggle,
+}: NavigationProps) => {
     const classes = useStyles();
 
     return (

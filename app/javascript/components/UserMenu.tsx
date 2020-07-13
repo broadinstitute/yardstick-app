@@ -1,14 +1,14 @@
 import * as React from "react";
-import {useStyles} from "./UserMenu.css";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import { useStyles } from "./UserMenu.css";
 
 type UserMenuProps = {
     anchorEl: HTMLElement;
     onClose: () => void;
-}
+};
 
-const UserMenu = ({anchorEl, onClose}: UserMenuProps) => {
+const UserMenu = ({ anchorEl, onClose }: UserMenuProps) => {
     const classes = useStyles();
 
     const open = Boolean(anchorEl);
@@ -20,13 +20,9 @@ const UserMenu = ({anchorEl, onClose}: UserMenuProps) => {
             keepMounted
             onClose={onClose}
             open={open}
-            transformOrigin={{horizontal: 'center', vertical: 'bottom'}}
+            transformOrigin={{ horizontal: "center", vertical: "bottom" }}
         >
-            <MenuItem
-                component="a"
-                href="/user"
-                onClick={onClose}
-            >
+            <MenuItem component="a" href="/user" onClick={onClose}>
                 Your profile
             </MenuItem>
 

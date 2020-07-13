@@ -1,9 +1,11 @@
 import * as React from "react";
-import {useStyles} from "./Application.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { Router } from "@reach/router";
+import { Grid, ThemeProvider } from "@material-ui/core";
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+import { useStyles } from "./Application.css";
 import NavigationDrawer from "./NavigationDrawer";
 import Navigation from "./Navigation";
-import {Router} from "@reach/router"
 import Session from "./Session";
 import Registration from "./Registration";
 import Tasks from "./Tasks";
@@ -14,10 +16,8 @@ import Challenges from "./Challenges";
 import Challenge from "./Challenge";
 import Versions from "./Versions";
 import Version from "./Version";
-import {Grid, ThemeProvider} from "@material-ui/core";
-import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
-type ApplicationProps = {}
+type ApplicationProps = {};
 
 const Application = ({}: ApplicationProps) => {
     const classes = useStyles();
@@ -57,39 +57,39 @@ const Application = ({}: ApplicationProps) => {
                     onToggle={onToggle}
                 />
 
-                <NavigationDrawer onClose={onToggle} open={toggled}/>
+                <NavigationDrawer onClose={onToggle} open={toggled} />
 
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
 
-                    <br/>
+                    <br />
 
-                    <br/>
+                    <br />
 
                     <Grid container spacing={2}>
-                        <Grid item xs={1}/>
+                        <Grid item xs={1} />
 
                         <Grid item xs={10}>
                             <Router>
-                                <Registration path="sign-up"/>
+                                <Registration path="sign-up" />
 
                                 <Session path="sign-in" />
 
-                                <Submissions path="submissions"/>
+                                <Submissions path="submissions" />
 
                                 <Tasks path="tasks">
                                     <Task path=":task">
                                         <Challenges path="challenges">
                                             <Challenge path=":challenge">
                                                 <Versions path="versions">
-                                                    <Version path=":version"/>
+                                                    <Version path=":version" />
                                                 </Versions>
                                             </Challenge>
                                         </Challenges>
                                     </Task>
                                 </Tasks>
 
-                                <User path="users/:username"/>
+                                <User path="users/:username" />
                             </Router>
                         </Grid>
                     </Grid>

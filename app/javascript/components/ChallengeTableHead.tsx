@@ -2,25 +2,23 @@ import * as React from "react";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import {useStyles} from "./ChallengeTable.css";
+import { useStyles } from "./ChallengeTable.css";
 
 type ChallengeTableHeadProps = {
     version?: Version;
-}
+};
 
-const ChallengeTableHead = ({version}: ChallengeTableHeadProps) => {
+const ChallengeTableHead = ({ version }: ChallengeTableHeadProps) => {
     const classes = useStyles();
 
     let metrics = [];
 
     if (version) {
-        metrics = version.metrics.map(({name, abbreviation}, index) => {
-            return (
-                <TableCell align="right" className={classes.root} key={index}>
-                    {abbreviation}
-                </TableCell>
-            );
-        });
+        metrics = version.metrics.map(({ name, abbreviation }, index) => (
+            <TableCell align="right" className={classes.root} key={index}>
+                {abbreviation}
+            </TableCell>
+        ));
     }
 
     return (
@@ -29,10 +27,11 @@ const ChallengeTableHead = ({version}: ChallengeTableHeadProps) => {
                 <TableCell className={classes.root}>&nbsp;</TableCell>
                 <TableCell className={classes.root}>&nbsp;</TableCell>
                 <TableCell className={classes.root}>&nbsp;</TableCell>
+                <TableCell className={classes.root}>&nbsp;</TableCell>
                 {metrics.length > 0 && metrics}
             </TableRow>
         </TableHead>
-    )
-}
+    );
+};
 
 export default ChallengeTableHead;

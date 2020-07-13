@@ -2,18 +2,16 @@ import * as React from "react";
 import Grid from "@material-ui/core/Grid";
 import Partition from "./Partition";
 
-type PartitionsProps = {}
+type PartitionsProps = {};
 
-const Partitions = ({}: PartitionsProps) => {
-    return (
-        <Grid container spacing={2}>
-            <Partition/>
+const Partitions = ({}: PartitionsProps) => (
+    <Grid container spacing={2}>
+        <Partition />
 
-            <Partition/>
+        <Partition />
 
-            <Partition/>
-        </Grid>
-    )
-};
+        <Partition />
+    </Grid>
+);
 
 export default Partitions;

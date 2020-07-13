@@ -5,22 +5,16 @@ import NavigationDrawerListItem from "./NavigationDrawerListItem";
 
 type NavigationDrawerListProps = {
     task: Task;
-}
+};
 
-const NavigationDrawerList = ({task}: NavigationDrawerListProps) => {
-    const subheader = (
-        <ListSubheader>
-            {task.name}
-        </ListSubheader>
-    );
+const NavigationDrawerList = ({ task }: NavigationDrawerListProps) => {
+    const subheader = <ListSubheader>{task.name}</ListSubheader>;
 
     return (
         <List key={task.id} subheader={subheader}>
-            {
-                task.challenges.map((challenge, index) => {
-                    return <NavigationDrawerListItem challenge={challenge} key={index}/>
-                })
-            }
+            {task.challenges.map((challenge, index) => (
+                <NavigationDrawerListItem challenge={challenge} key={index} />
+            ))}
         </List>
     );
 };

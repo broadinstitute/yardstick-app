@@ -1,17 +1,17 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
-import {useStyles} from "./NavigationDrawer.css";
+import { useStyles } from "./NavigationDrawer.css";
 import NavigationDrawerList from "./NavigationDrawerList";
-import {useEffect, useState} from "react";
 
 type NavigationDrawerProps = {
-    onClose: () => void
-    open: boolean
-}
+    onClose: () => void;
+    open: boolean;
+};
 
-const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
+const NavigationDrawer = ({ onClose, open }: NavigationDrawerProps) => {
     const classes = useStyles();
 
     const [error, setError] = useState(null);
@@ -20,60 +20,54 @@ const NavigationDrawer = ({onClose, open}: NavigationDrawerProps) => {
 
     useEffect(() => {
         fetch("/tasks")
-            .then(response => {
-                return response.json()
-            })
+            .then((response) => response.json())
             .then(
-                response => {
+                (response) => {
                     setLoading(true);
 
                     setTasks(response);
                 },
-                error => {
+                (error) => {
                     setLoading(true);
 
                     setError(error);
-                }
-            )
-    }, [])
+                },
+            );
+    }, []);
 
     return (
         <nav className={classes.drawer}>
             <Hidden implementation="css" smUp>
                 <Drawer
-                    ModalProps={{keepMounted: true}}
-                    classes={{paper: classes.paper}}
+                    ModalProps={{ keepMounted: true }}
+                    classes={{ paper: classes.paper }}
                     onClose={onClose}
                     open={open}
                     variant="temporary"
                 >
                     <div className={classes.toolbar} />
                     <Divider />
-                    {
-                        tasks.map((task, index) => {
-                            return <NavigationDrawerList key={index} task={task}/>
-                        })
-                    }
+                    {tasks.map((task, index) => (
+                        <NavigationDrawerList key={index} task={task} />
+                    ))}
                 </Drawer>
             </Hidden>
 
             <Hidden implementation="css" xsDown>
                 <Drawer
-                    classes={{paper: classes.paper}}
+                    classes={{ paper: classes.paper }}
                     open
                     variant="permanent"
                 >
                     <div className={classes.toolbar} />
                     <Divider />
-                    {
-                        tasks.map((task, index) => {
-                            return <NavigationDrawerList key={index} task={task}/>
-                        })
-                    }
+                    {tasks.map((task, index) => (
+                        <NavigationDrawerList key={index} task={task} />
+                    ))}
                 </Drawer>
             </Hidden>
         </nav>
-    )
+    );
 };
 
 export default NavigationDrawer;

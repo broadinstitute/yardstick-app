@@ -1,11 +1,9 @@
 import * as React from "react";
 
 type UserProps = {
-    username?: string
-}
-
-const User = ({username}: UserProps) => {
-    return <div/>
+    username?: string;
 };
+
+const User = ({ username }: UserProps) => <div />;
 
 export default User;

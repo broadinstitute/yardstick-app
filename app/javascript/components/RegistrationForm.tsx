@@ -1,22 +1,22 @@
 import * as React from "react";
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import {useStyles} from "./RegistrationForm.css";
-import {Formik, Field, Form, FormikProps} from "formik";
-import { TextField } from 'formik-material-ui';
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import { Field, Form, Formik, FormikProps } from "formik";
+import { TextField } from "formik-material-ui";
+import { useStyles } from "./RegistrationForm.css";
 
 type RegistrationFormProps = {
-    onSubmit: (values: any, actions: any) => void
-}
+    onSubmit: (values: any, actions: any) => void;
+};
 
-const RegistrationForm = ({onSubmit}: RegistrationFormProps) => {
+const RegistrationForm = ({ onSubmit }: RegistrationFormProps) => {
     const classes = useStyles();
 
     const initialValues = {
         email: "",
         password: "",
         username: "",
-    }
+    };
 
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
