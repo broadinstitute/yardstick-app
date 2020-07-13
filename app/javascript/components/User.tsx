@@ -4,6 +4,6 @@ type UserProps = {
     username?: string;
 };
 
-const User = ({ username }: UserProps) => <div />;
+const User = ({ username }: UserProps): JSX.Element => <div />;
 
 export default User;

@@ -17,7 +17,7 @@ type ChallengeProps = {
     children: any;
 };
 
-const Challenge = ({ challenge, children }: ChallengeProps) => {
+const Challenge = ({ challenge, children }: ChallengeProps): JSX.Element => {
     const [open, setOpen] = useState(false);
 
     const [error, setError] = useState(null);

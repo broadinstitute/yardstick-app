@@ -9,7 +9,7 @@ type RegistrationFormProps = {
     onSubmit: (values: any, actions: any) => void;
 };
 
-const RegistrationForm = ({ onSubmit }: RegistrationFormProps) => {
+const RegistrationForm = ({ onSubmit }: RegistrationFormProps): JSX.Element => {
     const classes = useStyles();
 
     const initialValues = {

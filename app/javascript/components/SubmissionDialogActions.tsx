@@ -6,7 +6,9 @@ type CreateSubmissionProps = {
     onClose: () => void;
 };
 
-const SubmissionDialogActions = ({ onClose }: CreateSubmissionProps) => (
+const SubmissionDialogActions = ({
+    onClose,
+}: CreateSubmissionProps): JSX.Element => (
     <DialogActions>
         <Button autoFocus onClick={onClose} color="primary">
             Disagree

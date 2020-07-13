@@ -2,6 +2,6 @@ import * as React from "react";
 
 type SubmissionsProps = {};
 
-const Submissions = ({}: SubmissionsProps) => <div />;
+const Submissions = ({}: SubmissionsProps): JSX.Element => <div />;
 
 export default Submissions;

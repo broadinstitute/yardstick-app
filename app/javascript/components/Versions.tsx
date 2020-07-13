@@ -4,7 +4,7 @@ type VersionsProps = {
     children: any;
 };
 
-const Versions = ({ children }: VersionsProps) => (
+const Versions = ({ children }: VersionsProps): JSX.Element => (
     <div id="versions">{children}</div>
 );
 

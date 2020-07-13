@@ -17,7 +17,7 @@ const Navigation = ({
     onClose,
     onOpen,
     onToggle,
-}: NavigationProps) => {
+}: NavigationProps): JSX.Element => {
     const classes = useStyles();
 
     return (

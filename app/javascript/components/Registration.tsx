@@ -21,7 +21,7 @@ type Error = {
     title: string;
 };
 
-const Registration = () => {
+const Registration = (): JSX.Element => {
     const classes = useStyles();
 
     const [loading, setLoading] = useState(false);

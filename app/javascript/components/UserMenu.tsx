@@ -8,7 +8,7 @@ type UserMenuProps = {
     onClose: () => void;
 };
 
-const UserMenu = ({ anchorEl, onClose }: UserMenuProps) => {
+const UserMenu = ({ anchorEl, onClose }: UserMenuProps): JSX.Element => {
     const classes = useStyles();
 
     const open = Boolean(anchorEl);

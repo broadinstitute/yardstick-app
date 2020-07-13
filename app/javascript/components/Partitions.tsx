@@ -4,7 +4,7 @@ import Partition from "./Partition";
 
 type PartitionsProps = {};
 
-const Partitions = ({}: PartitionsProps) => (
+const Partitions = ({}: PartitionsProps): JSX.Element => (
     <Grid container spacing={2}>
         <Partition />
 

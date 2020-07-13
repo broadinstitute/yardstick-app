@@ -6,7 +6,7 @@ import { Typography } from "@material-ui/core";
 
 type PartitionProps = {};
 
-const Partition = ({}: PartitionProps) => (
+const Partition = ({}: PartitionProps): JSX.Element => (
     <Grid item xs={4}>
         <Card>
             <CardContent>

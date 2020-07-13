@@ -7,7 +7,9 @@ type NavigationDrawerListProps = {
     task: Task;
 };
 
-const NavigationDrawerList = ({ task }: NavigationDrawerListProps) => {
+const NavigationDrawerList = ({
+    task,
+}: NavigationDrawerListProps): JSX.Element => {
     const subheader = <ListSubheader>{task.name}</ListSubheader>;
 
     return (

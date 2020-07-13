@@ -17,9 +17,7 @@ import Challenge from "./Challenge";
 import Versions from "./Versions";
 import Version from "./Version";
 
-type ApplicationProps = {};
-
-const Application = ({}: ApplicationProps) => {
+const Application = (): JSX.Element => {
     const classes = useStyles();
 
     const [anchor, setAnchor] = React.useState<null | HTMLElement>(null);

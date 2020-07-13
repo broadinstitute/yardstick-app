@@ -23,7 +23,7 @@ const NavigationToolbar = ({
                                onClose,
                                onOpen,
                                onToggle,
-                           }: NavigationToolbarProps) => {
+                           }: NavigationToolbarProps): JSX.Element => {
     const classes = useStyles();
 
     return (

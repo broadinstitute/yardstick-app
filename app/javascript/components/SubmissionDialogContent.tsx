@@ -2,7 +2,7 @@ import * as React from "react";
 import DialogContent from "@material-ui/core/DialogContent";
 import { TextField } from "@material-ui/core";
 
-const SubmissionDialogContent = () => (
+const SubmissionDialogContent = (): JSX.Element => (
     <DialogContent>
         <TextField
             autoFocus

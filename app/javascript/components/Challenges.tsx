@@ -4,7 +4,7 @@ type ChallengesProps = {
     children: any;
 };
 
-const Challenges = ({ children }: ChallengesProps) => (
+const Challenges = ({ children }: ChallengesProps): JSX.Element => (
     <div id="challenges">{children}</div>
 );
 

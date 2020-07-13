@@ -11,7 +11,10 @@ type NavigationDrawerProps = {
     open: boolean;
 };
 
-const NavigationDrawer = ({ onClose, open }: NavigationDrawerProps) => {
+const NavigationDrawer = ({
+    onClose,
+    open,
+}: NavigationDrawerProps): JSX.Element => {
     const classes = useStyles();
 
     const [error, setError] = useState(null);

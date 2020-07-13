@@ -9,7 +9,10 @@ type CreateSubmissionProps = {
     open: boolean;
 };
 
-const SubmissionDialog = ({ onClose, open }: CreateSubmissionProps) => (
+const SubmissionDialog = ({
+    onClose,
+    open,
+}: CreateSubmissionProps): JSX.Element => (
     <Dialog onClose={onClose} maxWidth="lg" open={open}>
         <SubmissionDialogTitle />
         <SubmissionDialogContent />

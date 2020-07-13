@@ -15,7 +15,7 @@ type ChallengeTableProps = {
     version?: Version;
 };
 
-const ChallengeTable = ({ version }: ChallengeTableProps) => {
+const ChallengeTable = ({ version }: ChallengeTableProps): JSX.Element => {
     const classes = useStyles();
 
     return (

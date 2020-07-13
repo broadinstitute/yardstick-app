@@ -8,7 +8,7 @@ type NavigationDrawerListItemProps = {
 
 const NavigationDrawerListItem = ({
                                       challenge,
-                                  }: NavigationDrawerListItemProps) => {
+                                  }: NavigationDrawerListItemProps): JSX.Element => {
     const ListItemLink = React.useMemo(
         () =>
             React.forwardRef((props, ref) => (

@@ -16,7 +16,7 @@ import Alert from "@material-ui/lab/Alert";
 import { useStyles } from "./Session.css";
 import Copyright from "./Copyright";
 
-const Session = () => {
+const Session = (): JSX.Element => {
     const classes = useStyles();
 
     const messages = [].map(

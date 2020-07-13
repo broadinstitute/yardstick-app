@@ -4,6 +4,8 @@ type TaskProps = {
     children: any;
 };
 
-const Task = ({ children }: TaskProps) => <div id="task">{children}</div>;
+const Task = ({ children }: TaskProps): JSX.Element => (
+    <div id="task">{children}</div>
+);
 
 export default Task;

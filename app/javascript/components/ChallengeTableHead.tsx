@@ -8,7 +8,9 @@ type ChallengeTableHeadProps = {
     version?: Version;
 };
 
-const ChallengeTableHead = ({ version }: ChallengeTableHeadProps) => {
+const ChallengeTableHead = ({
+    version,
+}: ChallengeTableHeadProps): JSX.Element => {
     const classes = useStyles();
 
     let metrics = [];
