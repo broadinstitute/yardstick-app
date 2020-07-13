@@ -9,6 +9,7 @@ import Alert from "@material-ui/lab/Alert";
 import { useStyles } from "./Registration.css";
 import Copyright from "./Copyright";
 import RegistrationForm from "./RegistrationForm";
+import { RouteComponentProps } from "@reach/router";
 
 type Error = {
     code: string;
@@ -21,7 +22,7 @@ type Error = {
     title: string;
 };
 
-const Registration = (): JSX.Element => {
+const Registration = (props: RouteComponentProps): JSX.Element => {
     const classes = useStyles();
 
     const [loading, setLoading] = useState(false);

@@ -15,8 +15,9 @@ import { FormFor } from "react-rails-form-helpers";
 import Alert from "@material-ui/lab/Alert";
 import { useStyles } from "./Session.css";
 import Copyright from "./Copyright";
+import { RouteComponentProps } from "@reach/router";
 
-const Session = (): JSX.Element => {
+const Session = (props: RouteComponentProps): JSX.Element => {
     const classes = useStyles();
 
     const messages = [].map(

@@ -11,12 +11,14 @@ import Button from "@material-ui/core/Button";
 import Partitions from "./Partitions";
 import ChallengeTable from "./ChallengeTable";
 import SubmissionDialog from "./SubmissionDialog";
+import { RouteComponentProps } from "@reach/router";
 
-type ChallengeProps = {
-    challenge?: Challenge;
-};
+interface ChallengeProps extends RouteComponentProps {
+    challenge?: string;
+    task?: string;
+}
 
-const Challenge = ({ challenge }: ChallengeProps): JSX.Element => {
+const Challenge = ({ challenge, task }: ChallengeProps): JSX.Element => {
     const [open, setOpen] = useState(false);
 
     const [error, setError] = useState(null);
@@ -64,7 +66,7 @@ const Challenge = ({ challenge }: ChallengeProps): JSX.Element => {
             <Grid container spacing={2}>
                 <Grid item xs={9}>
                     <Typography variant="h5" gutterBottom>
-                        {challenge}
+                        &nbsp;
                     </Typography>
                 </Grid>
 

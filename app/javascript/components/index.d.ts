@@ -27,7 +27,7 @@ type Score = {
     submission: Submission;
     value: string;
     version: Version;
-}
+};
 
 type Submission = {
     description: string;
@@ -46,13 +46,13 @@ type Task = {
 type User = {
     email: string;
     username: string;
-}
+};
 
 type Version = {
     name: string;
-    description: string
+    description: string;
     trainingPartition: Partition;
     validationPartition: Partition;
     testPartition: Partition;
-    metrics: Array<Metric>
+    metrics: Array<Metric>;
 };

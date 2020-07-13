@@ -58,10 +58,10 @@ const NavigationToolbar = ({
                 </>
             ) : (
                 <div>
-                    <Button color="inherit" component={Link} to="sign-in">
+                    <Button color="inherit" component={Link} to="/sessions">
                         Sign in
                     </Button>
-                    <Button color="inherit" component={Link} to="sign-up">
+                    <Button color="inherit" component={Link} to="/registrations">
                         Sign up
                     </Button>
                 </div>
