@@ -29,7 +29,7 @@ const Root = (): JSX.Element => {
             <CssBaseline />
 
             <Navigation
-                anchor={anchorEl}
+                anchorEl={anchorEl}
                 authenticated={false}
                 onClose={onClose}
                 onOpen={onOpen}

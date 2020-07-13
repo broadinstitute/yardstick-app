@@ -13,12 +13,8 @@ import ChallengeTable from "./ChallengeTable";
 import SubmissionDialog from "./SubmissionDialog";
 import { RouteComponentProps } from "@reach/router";
 
-interface ChallengeProps extends RouteComponentProps {
-    challenge?: string;
-    task?: string;
-}
 
-const Challenge = ({ challenge, task }: ChallengeProps): JSX.Element => {
+const Challenge = (props: RouteComponentProps): JSX.Element => {
     const [open, setOpen] = useState(false);
 
     const [error, setError] = useState(null);
