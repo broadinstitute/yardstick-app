@@ -10,10 +10,6 @@ export const Content = (): JSX.Element => {
         <main className={classes.content}>
             <div className={classes.toolbar} />
 
-            <br />
-
-            <br />
-
             <Grid container spacing={2}>
                 <Grid item xs={1} />
 

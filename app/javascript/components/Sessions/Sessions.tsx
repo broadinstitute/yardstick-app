@@ -11,13 +11,13 @@ import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import {FormFor} from "react-rails-form-helpers";
+import { FormFor } from "react-rails-form-helpers";
 import Alert from "@material-ui/lab/Alert";
-import {useStyles} from "./Session.css";
-import {Copyright} from "../Copyright";
-import {RouteComponentProps} from "@reach/router";
+import { useStyles } from "./Sessions.css";
+import { Copyright } from "../Copyright";
+import { RouteComponentProps } from "@reach/router";
 
-export const Session = (props: RouteComponentProps): JSX.Element => {
+export const Sessions = (props: RouteComponentProps): JSX.Element => {
     const classes = useStyles();
 
     const messages = [].map(
@@ -47,11 +47,11 @@ export const Session = (props: RouteComponentProps): JSX.Element => {
 
     return (
         <Container component="main" maxWidth="xs">
-            <CssBaseline/>
+            <CssBaseline />
 
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon/>
+                    <LockOutlinedIcon />
                 </Avatar>
 
                 <Typography component="h1" variant="h5">
@@ -84,7 +84,7 @@ export const Session = (props: RouteComponentProps): JSX.Element => {
                     />
 
                     <FormControlLabel
-                        control={<Checkbox value="remember" color="primary"/>}
+                        control={<Checkbox value="remember" color="primary" />}
                         label="Remember me"
                     />
 
@@ -116,7 +116,7 @@ export const Session = (props: RouteComponentProps): JSX.Element => {
             </div>
 
             <Box mt={8}>
-                <Copyright/>
+                <Copyright />
             </Box>
         </Container>
     );

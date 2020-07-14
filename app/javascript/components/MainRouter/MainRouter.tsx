@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Router } from "@reach/router";
-import { Session } from "../Session";
+import { Sessions } from "../Sessions";
 import { Registration } from "../Registration";
 import { Challenge } from "../Challenge";
 
@@ -9,7 +9,7 @@ export const MainRouter = (): JSX.Element => {
         <Router>
             <Challenge path="/tasks/:task/challenges/:challenge" />
             <Registration path="/registrations" />
-            <Session path="/sessions" />
+            <Sessions path="/sessions" />
         </Router>
     );
 };
