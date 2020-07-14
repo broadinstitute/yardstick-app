@@ -13,7 +13,6 @@ import ChallengeTable from "./ChallengeTable";
 import SubmissionDialog from "./SubmissionDialog";
 import { RouteComponentProps } from "@reach/router";
 
-
 const Challenge = (props: RouteComponentProps): JSX.Element => {
     const [open, setOpen] = useState(false);
 
@@ -83,26 +82,18 @@ const Challenge = (props: RouteComponentProps): JSX.Element => {
                 </Grid>
             </Grid>
 
-            <br />
-
             <ChallengeTable version={version} />
 
-            <br />
-
             <Button
-                variant="contained"
                 color="primary"
                 disableElevation
                 onClick={onOpen}
+                variant="contained"
             >
                 Submit new scores
             </Button>
 
             <SubmissionDialog onClose={onClose} open={open} />
-
-            <br />
-
-            <br />
 
             <Partitions />
         </div>

@@ -23,7 +23,7 @@ const Navigation = ({
     return (
         <AppBar position="fixed" className={classes.appBar}>
             <NavigationToolbar
-                anchor={anchorEl}
+                anchorEl={anchorEl}
                 authenticated={authenticated}
                 onClose={onClose}
                 onOpen={onOpen}
