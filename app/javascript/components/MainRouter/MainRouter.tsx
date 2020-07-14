@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Router } from "@reach/router";
-import { Sessions } from "../Sessions";
+import { Sessions } from "../Sessions/Sessions";
 import { Registration } from "../Registration";
 import { Challenge } from "../Challenge";
 
