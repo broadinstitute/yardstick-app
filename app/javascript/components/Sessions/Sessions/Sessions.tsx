@@ -8,23 +8,18 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import {useStyles} from "./Sessions.css";
 import {Copyright} from "../../Copyright";
-import {RouteComponentProps} from "@reach/router";
+import {navigate, RouteComponentProps} from "@reach/router";
 import {SessionsForm} from "../SessionsForm";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
-import {useDispatch, useSelector} from "react-redux";
-import {authenticateAction, State} from "../../store";
+import {useDispatch} from "react-redux";
+import {authenticateAction} from "../../store";
 
 export const Sessions = (_: RouteComponentProps): JSX.Element => {
     const dispatch = useDispatch();
 
-    const token = useSelector((state: State) => {
-        return state.token;
-    });
-
     const ref = useRef(false);
 
-    const [authorizationToken, setAuthorizationToken] = useState<string>(token);
     const [authorizationError, setAuthorizationError] = useState();
     const [authorizing, setAuthorizing] = useState<boolean>(false);
     const [user, setUser] = useState<{ email: string; password: string }>();
@@ -50,8 +45,6 @@ export const Sessions = (_: RouteComponentProps): JSX.Element => {
 
                 token = response.headers.get("authorization");
 
-                setAuthorizationToken(token);
-
                 setAuthorizing(false);
             })
             .catch((error) => {
@@ -63,10 +56,11 @@ export const Sessions = (_: RouteComponentProps): JSX.Element => {
 
     useEffect(() => {
         if (ref.current) {
-            tokenize()
-                .then((token) => {
-                    authenticate(token);
-                });
+            tokenize().then((token) => {
+                authenticate(token);
+
+                navigate("/");
+            });
         } else {
             ref.current = true;
         }
