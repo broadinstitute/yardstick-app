@@ -1,0 +1,1 @@
+export {ChallengeTableHead} from "./ChallengeTableHead";
