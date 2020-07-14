@@ -1,82 +1,82 @@
 import * as React from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import Avatar from "@material-ui/core/Avatar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Alert from "@material-ui/lab/Alert";
-import { useStyles } from "./Sessions.css";
-import { Copyright } from "../../Copyright";
-import { RouteComponentProps } from "@reach/router";
-import { SessionsForm } from "../SessionsForm";
+import {useStyles} from "./Sessions.css";
+import {Copyright} from "../../Copyright";
+import {RouteComponentProps} from "@reach/router";
+import {SessionsForm} from "../SessionsForm";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
-import { useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {authenticateAction, State} from "../../store";
 
-export const Sessions = (props: RouteComponentProps): JSX.Element => {
-    const classes = useStyles();
+export const Sessions = (_: RouteComponentProps): JSX.Element => {
+    const dispatch = useDispatch();
 
-    const [loading, setLoading] = useState(false);
-    const [errors, setErrors] = useState<Array<Error>>([]);
-    const [user, setUser] = useState<Array<Task>>([]);
-    const [token, setToken] = useState<string>();
+    const token = useSelector((state: State) => {
+        return state.token;
+    });
 
-    const messages = [].map(
-        ([kind, message]: [string, string], index: number) => {
-            if (kind && message) {
-                const kinds = {
-                    alert: "warning",
-                    error: "error",
-                    notice: "info",
-                    success: "success",
-                };
+    const ref = useRef(false);
 
-                const severity = kinds[kind];
+    const [authorizationToken, setAuthorizationToken] = useState<string>(token);
+    const [authorizationError, setAuthorizationError] = useState();
+    const [authorizing, setAuthorizing] = useState<boolean>(false);
+    const [user, setUser] = useState<{ email: string; password: string }>();
 
-                return (
-                    <Alert
-                        className={classes.alert}
-                        key={index}
-                        severity={severity}
-                    >
-                        {message}
-                    </Alert>
-                );
-            }
-        },
-    );
+    const authenticate = useCallback((token) => {
+        dispatch(authenticateAction(token));
+    }, [dispatch]);
 
-    const onSubmit = (values) => {
+    const tokenize = async () => {
         const init = {
-            body: JSON.stringify({ user: values }),
+            body: JSON.stringify({ user: user }),
             headers: {
                 "Content-Type": "application/json",
             },
             method: "POST",
         };
 
-        fetch("/users/sign_in", init)
+        let token = "";
+
+        await fetch("/users/sign_in", init)
             .then((response) => {
-                setToken(response.headers.get["Authorization"]);
+                setAuthorizing(true);
 
-                console.log(response.headers.get["Authorization"]);
+                token = response.headers.get("authorization");
 
-                return response.json();
-            })
-            .then((response) => {
-                if ("errors" in response) {
-                    setErrors(response.errors);
-                }
+                setAuthorizationToken(token);
 
-                setUser(response.data);
+                setAuthorizing(false);
             })
             .catch((error) => {
-                console.error(error);
-            });
+                setAuthorizationError(error);
+            })
 
-        console.log(token);
+        return token;
     };
+
+    useEffect(() => {
+        if (ref.current) {
+            tokenize()
+                .then((token) => {
+                    authenticate(token);
+                });
+        } else {
+            ref.current = true;
+        }
+    }, [user]);
+
+    const onSubmit = (values) => {
+        setUser(values);
+    };
+
+    const classes = useStyles();
 
     return (
         <Container component="main" maxWidth="xs">
@@ -90,8 +90,6 @@ export const Sessions = (props: RouteComponentProps): JSX.Element => {
                 <Typography component="h1" variant="h5">
                     Sign in to Yardstick
                 </Typography>
-
-                {messages}
 
                 <SessionsForm onSubmit={onSubmit} />
 
